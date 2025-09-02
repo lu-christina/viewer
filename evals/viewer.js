@@ -8,6 +8,7 @@ class JailbreakEvalViewer {
         this.promptCache = new Map();
         this.viewMode = 'prompt'; // 'prompt' or 'response'
         this.currentFilterIndex = 0; // Track position for loading more filtered results
+        this.isUpdatingUrl = false; // Prevent infinite loops when updating URL
         
         // DOM elements
         this.modelSelect = document.getElementById('model-select');
@@ -42,7 +43,9 @@ class JailbreakEvalViewer {
         this.responsesContainer = document.getElementById('responses-container');
         
         this.initEventListeners();
-        this.loadAvailableModels();
+        this.loadAvailableModels().then(() => {
+            this.initFromUrl();
+        });
     }
     
     initEventListeners() {
@@ -52,6 +55,16 @@ class JailbreakEvalViewer {
         this.prevPromptBtn.addEventListener('click', () => this.navigatePrompt(-1));
         this.nextPromptBtn.addEventListener('click', () => this.navigatePrompt(1));
         this.applyFiltersBtn.addEventListener('click', () => this.applyFilters());
+        
+        // Update URL when model/eval changes
+        this.modelSelect.addEventListener('change', () => {
+            this.currentModel = this.modelSelect.value;
+            this.updateUrl();
+        });
+        this.evalSelect.addEventListener('change', () => {
+            this.currentEval = this.evalSelect.value;
+            this.updateUrl();
+        });
         
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
@@ -140,6 +153,7 @@ class JailbreakEvalViewer {
             }
             
             this.setStatus(`Loaded ${modelName} with ${this.modelIndex.total_prompts} prompts`, 'success');
+            this.updateUrl();
         } catch (error) {
             console.error('Error loading model data:', error);
             this.setStatus(`Error loading ${modelName}: ${error.message}`, 'error');
@@ -181,6 +195,7 @@ class JailbreakEvalViewer {
             this.currentPromptData = promptData;
             this.currentPromptIndex = index;
             this.displayPrompt();
+            this.updateUrl();
             
             // Preload adjacent prompts
             this.preloadAdjacentPrompts(index);
@@ -329,6 +344,7 @@ class JailbreakEvalViewer {
                 this.loadFilteredResponses();
             }
         }
+        this.updateUrl();
     }
     
     updateMagnitudeOptions() {
@@ -354,6 +370,7 @@ class JailbreakEvalViewer {
         }
         
         await this.loadFilteredResponses();
+        this.updateUrl();
     }
     
     async loadFilteredResponses(startIndex = 0) {
@@ -593,6 +610,113 @@ class JailbreakEvalViewer {
         // } else {
         //     this.loadingOverlay.classList.remove('active');
         // }
+    }
+
+    // URL parameter methods
+    getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            model: params.get('model'),
+            eval: params.get('eval') || 'jailbreak',
+            view: params.get('view') || 'prompt',
+            prompt: parseInt(params.get('prompt')) || 0,
+            jailbreak: params.get('jailbreak') !== 'false',
+            default: params.get('default') !== 'false', 
+            magnitude: params.get('magnitude') || 'all',
+            score: params.get('score') || 'all'
+        };
+    }
+
+    updateUrl() {
+        if (this.isUpdatingUrl) return;
+        
+        const params = new URLSearchParams();
+        
+        if (this.currentModel) {
+            params.set('model', this.currentModel);
+        }
+        if (this.currentEval !== 'jailbreak') {
+            params.set('eval', this.currentEval);
+        }
+        if (this.viewMode !== 'prompt') {
+            params.set('view', this.viewMode);
+        }
+        if (this.viewMode === 'prompt' && this.currentPromptIndex > 0) {
+            params.set('prompt', this.currentPromptIndex.toString());
+        }
+        if (this.viewMode === 'response') {
+            if (!this.filterJailbreak.checked) {
+                params.set('jailbreak', 'false');
+            }
+            if (!this.filterDefault.checked) {
+                params.set('default', 'false');
+            }
+            if (this.filterMagnitude.value !== 'all') {
+                params.set('magnitude', this.filterMagnitude.value);
+            }
+            if (this.filterScore.value !== 'all') {
+                params.set('score', this.filterScore.value);
+            }
+        }
+
+        const newUrl = params.toString() ? 
+            `${window.location.pathname}?${params.toString()}` : 
+            window.location.pathname;
+            
+        window.history.replaceState({}, '', newUrl);
+    }
+
+    async initFromUrl() {
+        this.isUpdatingUrl = true;
+        const params = this.getUrlParams();
+        
+        // Set model
+        if (params.model) {
+            this.modelSelect.value = params.model;
+            this.currentModel = params.model;
+        }
+        
+        // Set eval
+        if (params.eval !== 'jailbreak') {
+            this.evalSelect.value = params.eval;
+            this.currentEval = params.eval;
+        }
+        
+        // Set view mode
+        this.viewMode = params.view;
+        this.updateViewMode();
+        
+        // Load model data if model is selected
+        if (this.currentModel) {
+            await this.loadModelData();
+            
+            // Set prompt index for prompt view
+            if (this.viewMode === 'prompt' && params.prompt !== undefined) {
+                this.currentPromptIndex = Math.max(0, Math.min(params.prompt, this.modelIndex.total_prompts - 1));
+                await this.loadPrompt(this.currentPromptIndex);
+            }
+            
+            // Set filters for response view
+            if (this.viewMode === 'response') {
+                this.filterJailbreak.checked = params.jailbreak;
+                this.filterDefault.checked = params.default;
+                this.filterMagnitude.value = params.magnitude;
+                this.filterScore.value = params.score;
+                this.applyFilters();
+            }
+        }
+        
+        this.isUpdatingUrl = false;
+    }
+
+    updateViewMode() {
+        // Update button states
+        this.viewPromptBtn.classList.toggle('active', this.viewMode === 'prompt');
+        this.viewResponseBtn.classList.toggle('active', this.viewMode === 'response');
+        
+        // Update view visibility
+        this.promptView.classList.toggle('active', this.viewMode === 'prompt');
+        this.responseTypeView.classList.toggle('active', this.viewMode === 'response');
     }
 }
 
