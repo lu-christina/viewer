@@ -130,11 +130,6 @@ def process_model_data(model_dir, output_dir):
     for entry in data['steered_jailbreak']:
         prompt_id = str(entry['id'])
         magnitude_value = entry.get('magnitude', 0)
-        
-        # For Llama models, filter out positive magnitudes (keep only negative)
-        if 'llama' in model_name.lower() and magnitude_value >= 0:
-            continue
-            
         magnitude = str(int(magnitude_value))
         steered_by_magnitude[magnitude]["jailbreak"][prompt_id] = {
             "response": entry.get('response', ''),
@@ -144,11 +139,6 @@ def process_model_data(model_dir, output_dir):
     for entry in data['steered_default']:
         prompt_id = str(entry['id'])
         magnitude_value = entry.get('magnitude', 0)
-        
-        # For Llama models, filter out positive magnitudes (keep only negative)
-        if 'llama' in model_name.lower() and magnitude_value >= 0:
-            continue
-            
         magnitude = str(int(magnitude_value))
         steered_by_magnitude[magnitude]["default"][prompt_id] = {
             "response": entry.get('response', ''),
@@ -195,12 +185,12 @@ def process_model_data(model_dir, output_dir):
             all_magnitudes.update(prompt_data["responses"]["steered"].keys())
     
     # Sort magnitudes based on model
-    # Llama: less negative to more negative (-6, -12, -18, -24)
-    # Qwen/Gemma: greater to less (for positive values)
+    # Llama: ascending order (3, 6, 9, 12, 15, 18, 21, 24)
+    # Qwen/Gemma: descending order (high to low negative values)
     if 'llama' in model_name.lower():
-        index["magnitudes"] = sorted([float(m) for m in all_magnitudes], reverse=False)  # -6, -12, -18, -24
+        index["magnitudes"] = sorted([float(m) for m in all_magnitudes], reverse=False)  # Ascending
     else:  # qwen, gemma
-        index["magnitudes"] = sorted([float(m) for m in all_magnitudes], reverse=True)  # High to low
+        index["magnitudes"] = sorted([float(m) for m in all_magnitudes], reverse=True)  # Descending
     
     # Save index file
     index_file = model_output_dir / "index.json"
