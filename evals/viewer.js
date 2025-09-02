@@ -501,6 +501,15 @@ class JailbreakEvalViewer {
         question.textContent = promptData.question.substring(0, 100) + 
                               (promptData.question.length > 100 ? '...' : '');
         
+        // Add persona and category info
+        const contextInfo = document.createElement('div');
+        contextInfo.className = 'response-box-context';
+        contextInfo.innerHTML = `
+            <div><strong>Persona:</strong> ${promptData.persona}</div>
+            <div><strong>Category:</strong> ${promptData.harm_category}</div>
+            <div><strong>${response.type === 'jailbreak' ? 'Jailbreak' : 'No Jailbreak'}</strong></div>
+        `;
+        
         const metadata = document.createElement('div');
         metadata.className = 'response-box-metadata';
         // Map score types to display labels
@@ -517,7 +526,6 @@ class JailbreakEvalViewer {
         };
         
         metadata.innerHTML = `
-            <span>Type: ${response.type}</span>
             <span>Magnitude: ${response.magnitude}</span>
             <span class="score-badge ${response.score}">${scoreLabels[response.score] || response.score.replace(/_/g, ' ').toUpperCase()}</span>
         `;
@@ -532,6 +540,7 @@ class JailbreakEvalViewer {
         }
         
         header.appendChild(question);
+        header.appendChild(contextInfo);
         header.appendChild(metadata);
         box.appendChild(header);
         box.appendChild(content);
@@ -545,11 +554,12 @@ class JailbreakEvalViewer {
     }
     
     showLoading(show) {
-        if (show) {
-            this.loadingOverlay.classList.add('active');
-        } else {
-            this.loadingOverlay.classList.remove('active');
-        }
+        // Just use status bar, don't show overlay
+        // if (show) {
+        //     this.loadingOverlay.classList.add('active');
+        // } else {
+        //     this.loadingOverlay.classList.remove('active');
+        // }
     }
 }
 
