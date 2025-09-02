@@ -7,6 +7,7 @@ class JailbreakEvalViewer {
         this.currentPromptData = null;
         this.promptCache = new Map();
         this.viewMode = 'prompt'; // 'prompt' or 'response'
+        this.currentFilterIndex = 0; // Track position for loading more filtered results
         
         // DOM elements
         this.modelSelect = document.getElementById('model-select');
@@ -355,31 +356,37 @@ class JailbreakEvalViewer {
         await this.loadFilteredResponses();
     }
     
-    async loadFilteredResponses() {
-        this.showLoading(true);
-        this.setStatus('Applying filters...', 'loading');
+    async loadFilteredResponses(startIndex = 0) {
+        if (startIndex === 0) {
+            this.showLoading(true);
+            this.setStatus('Applying filters...', 'loading');
+            this.responsesContainer.innerHTML = '';
+            this.currentFilterIndex = 0;
+        }
         
         const includeJailbreak = this.filterJailbreak.checked;
         const includeDefault = this.filterDefault.checked;
         const magnitudeFilter = this.filterMagnitude.value;
         const scoreFilter = this.filterScore.value;
         
-        this.responsesContainer.innerHTML = '';
-        
         try {
             let displayCount = 0;
-            const maxDisplay = 50; // Limit number of displayed responses
-            const maxPromptsToCheck = 200; // Limit how many prompts we check
+            const batchSize = 50; // Load 50 at a time
+            const maxPromptsToCheck = 100; // Check 100 prompts per batch
             let promptsChecked = 0;
             
-            // Use a random sample of prompts for better diversity
-            const promptIds = [...this.modelIndex.prompt_ids];
-            const shuffled = promptIds.sort(() => Math.random() - 0.5);
+            // Continue from where we left off
+            const promptIds = this.modelIndex.prompt_ids;
             
-            for (const promptId of shuffled) {
-                if (displayCount >= maxDisplay) break;
-                if (promptsChecked >= maxPromptsToCheck) break;
+            for (let i = startIndex; i < promptIds.length && displayCount < batchSize; i++) {
+                if (promptsChecked >= maxPromptsToCheck) {
+                    // Save where we left off for next batch
+                    this.currentFilterIndex = i;
+                    break;
+                }
                 promptsChecked++;
+                
+                const promptId = promptIds[i];
                 
                 // Load prompt data if not cached
                 let promptData;
@@ -392,7 +399,7 @@ class JailbreakEvalViewer {
                         promptData = await response.json();
                         
                         // Cache it
-                        if (this.promptCache.size <= 50) {
+                        if (this.promptCache.size <= 100) {
                             this.promptCache.set(promptId, promptData);
                         }
                     } catch (e) {
@@ -410,19 +417,45 @@ class JailbreakEvalViewer {
                 );
                 
                 for (const response of matchingResponses) {
-                    if (displayCount >= maxDisplay) break;
+                    if (displayCount >= batchSize) break;
                     
                     const box = this.createResponseBox(promptData, response);
                     this.responsesContainer.appendChild(box);
                     displayCount++;
                 }
+                
+                this.currentFilterIndex = i + 1;
             }
             
-            if (displayCount === 0) {
+            // Add Load More button if there are more to load
+            const existingLoadMore = document.getElementById('load-more-btn');
+            if (existingLoadMore) {
+                existingLoadMore.remove();
+            }
+            
+            if (this.currentFilterIndex < promptIds.length) {
+                const loadMoreBtn = document.createElement('button');
+                loadMoreBtn.id = 'load-more-btn';
+                loadMoreBtn.textContent = 'Load More';
+                loadMoreBtn.style.margin = '20px auto';
+                loadMoreBtn.style.display = 'block';
+                loadMoreBtn.onclick = () => {
+                    loadMoreBtn.disabled = true;
+                    loadMoreBtn.textContent = 'Loading...';
+                    this.loadFilteredResponses(this.currentFilterIndex).then(() => {
+                        loadMoreBtn.disabled = false;
+                        loadMoreBtn.textContent = 'Load More';
+                    });
+                };
+                this.responsesContainer.parentElement.appendChild(loadMoreBtn);
+            }
+            
+            if (startIndex === 0 && displayCount === 0) {
                 this.responsesContainer.innerHTML = '<p>No responses match the selected filters.</p>';
             }
             
-            this.setStatus(`Showing ${displayCount} filtered responses`, 'success');
+            const totalShown = this.responsesContainer.querySelectorAll('.response-box').length;
+            this.setStatus(`Showing ${totalShown} filtered responses`, 'success');
         } catch (error) {
             console.error('Error loading filtered responses:', error);
             this.setStatus('Error applying filters', 'error');

@@ -333,15 +333,16 @@
             align-items: center;
         }
         
-        .filter-group {
+        .filter-group-horizontal {
             display: flex;
-            flex-direction: column;
-            gap: 5px;
+            align-items: center;
+            gap: 8px;
         }
         
         .filter-label {
             font-size: 11px;
             font-weight: bold;
+            white-space: nowrap;
         }
         
         .checkbox-group {
@@ -380,10 +381,21 @@
             margin-bottom: 5px;
         }
         
+        .response-box-context {
+            font-size: 11px;
+            margin: 5px 0;
+            line-height: 1.3;
+        }
+        
+        .response-box-context div {
+            margin: 2px 0;
+        }
+        
         .response-box-metadata {
             display: flex;
             gap: 10px;
             font-size: 10px;
+            margin-top: 5px;
         }
         
         .response-box-content {
@@ -560,7 +572,7 @@
         <div id="response-type-view" class="response-type-view">
             <div class="filter-controls">
                 <div class="filter-row">
-                    <div class="filter-group">
+                    <div class="filter-group-horizontal">
                         <span class="filter-label">Jailbreak:</span>
                         <div class="checkbox-group">
                             <label class="checkbox-item">
@@ -574,14 +586,14 @@
                         </div>
                     </div>
                     
-                    <div class="filter-group">
+                    <div class="filter-group-horizontal">
                         <span class="filter-label">Magnitude:</span>
                         <select id="filter-magnitude">
                             <option value="all">All Magnitudes</option>
                         </select>
                     </div>
                     
-                    <div class="filter-group">
+                    <div class="filter-group-horizontal">
                         <span class="filter-label">Score:</span>
                         <select id="filter-score">
                             <option value="all">All Scores</option>
