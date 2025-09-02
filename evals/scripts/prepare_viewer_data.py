@@ -163,6 +163,16 @@ def process_model_data(model_dir, output_dir):
                     prompts_data[prompt_id]["responses"]["steered"][magnitude]["default"] = \
                         mag_data["default"][prompt_id]
     
+    # Remove prompts that ended up with no steered data (safety check)
+    prompts_to_remove = []
+    for prompt_id, prompt_data in prompts_data.items():
+        if not prompt_data["responses"]["steered"]:  # Empty dict
+            prompts_to_remove.append(prompt_id)
+    
+    for prompt_id in prompts_to_remove:
+        del prompts_data[prompt_id]
+        print(f"  Removed prompt {prompt_id} - no steered data found")
+    
     # Save individual prompt files and build index
     for prompt_id, prompt_data in prompts_data.items():
         # Save individual prompt file
