@@ -208,7 +208,7 @@ def main():
     parser = argparse.ArgumentParser(description='Prepare jailbreak evaluation data for viewer with lazy loading')
     parser.add_argument('--input-dir', type=Path, default=Path('/root/git/persona-subspace/evals/jailbreak'),
                         help='Directory containing model evaluation data')
-    parser.add_argument('--output-dir', type=Path, default=Path('../data'),
+    parser.add_argument('--output-dir', type=Path, default=Path('/root/git/persona-subspace/viewer/evals/data'),
                         help='Output directory for processed data')
     args = parser.parse_args()
     
