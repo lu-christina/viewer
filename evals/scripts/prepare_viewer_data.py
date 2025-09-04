@@ -20,7 +20,7 @@ def load_jsonl(filepath):
     return data
 
 
-def process_model_data(model_dir, output_dir):
+def process_model_data(model_dir, output_dir, chunk_size=25):
     """Process all data files for a given model with lazy loading structure."""
     model_name = model_dir.name
     print(f"Processing model: {model_name}")
@@ -52,9 +52,9 @@ def process_model_data(model_dir, output_dir):
     model_output_dir = output_dir / model_name
     model_output_dir.mkdir(parents=True, exist_ok=True)
     
-    # Create prompts subdirectory for individual prompt files
-    prompts_dir = model_output_dir / "prompts"
-    prompts_dir.mkdir(parents=True, exist_ok=True)
+    # Create chunks subdirectory for chunk files
+    chunks_dir = model_output_dir / "chunks"
+    chunks_dir.mkdir(parents=True, exist_ok=True)
     
     # Build index structure
     index = {
@@ -63,7 +63,10 @@ def process_model_data(model_dir, output_dir):
         "prompt_ids": [],
         "magnitudes": [],
         "harm_categories": set(),
-        "total_prompts": 0
+        "total_prompts": 0,
+        "chunk_size": chunk_size,
+        "total_chunks": 0,
+        "prompt_to_chunk_map": {}
     }
     
     # First, find IDs that exist in both unsteered and steered datasets
@@ -173,19 +176,41 @@ def process_model_data(model_dir, output_dir):
         del prompts_data[prompt_id]
         print(f"  Removed prompt {prompt_id} - no steered data found")
     
-    # Save individual prompt files and build index
-    for prompt_id, prompt_data in prompts_data.items():
-        # Save individual prompt file
-        prompt_file = prompts_dir / f"{prompt_id}.json"
-        with open(prompt_file, 'w') as f:
-            json.dump(prompt_data, f)
+    # Save chunk files and build index
+    prompt_items = list(prompts_data.items())
+    chunks = []
+    
+    # Create chunks
+    for i in range(0, len(prompt_items), chunk_size):
+        chunk_data = []
+        chunk_prompts = prompt_items[i:i + chunk_size]
         
-        # Add to index
+        for prompt_id, prompt_data in chunk_prompts:
+            chunk_data.append(prompt_data)
+            # Add to prompt_to_chunk_map
+            chunk_index = len(chunks)
+            prompt_index_within_chunk = len(chunk_data) - 1
+            index["prompt_to_chunk_map"][prompt_id] = {
+                "chunk_index": chunk_index,
+                "prompt_index": prompt_index_within_chunk
+            }
+        
+        chunks.append(chunk_data)
+    
+    # Save chunk files
+    for chunk_index, chunk_data in enumerate(chunks):
+        chunk_file = chunks_dir / f"chunk_{chunk_index}.json"
+        with open(chunk_file, 'w') as f:
+            json.dump(chunk_data, f)
+    
+    # Add prompt IDs to index in sorted order
+    for prompt_id, _ in prompt_items:
         index["prompt_ids"].append(prompt_id)
     
     # Finalize index
     index["prompt_ids"] = sorted(index["prompt_ids"], key=int)
     index["total_prompts"] = len(index["prompt_ids"])
+    index["total_chunks"] = len(chunks)
     index["harm_categories"] = sorted(list(index["harm_categories"]))
     
     # Get unique magnitudes and sort based on model type
@@ -194,9 +219,10 @@ def process_model_data(model_dir, output_dir):
         if "steered" in prompt_data["responses"]:
             all_magnitudes.update(prompt_data["responses"]["steered"].keys())
     
-    # Sort magnitudes based on model
-    # Llama: ascending order (3, 6, 9, 12, 15, 18, 21, 24)
-    # Qwen/Gemma: descending order (high to low negative values)
+    # Sort magnitudes based on model, including 0.0 (unsteered) in proper numerical order
+    # Llama: ascending order (..., -500, 0, 500, ...)
+    # Qwen/Gemma: descending order (1000, 500, 0, -500, -1000, ...)
+    all_magnitudes.add("0")  # Add unsteered magnitude to the sorting
     if 'llama' in model_name.lower():
         index["magnitudes"] = sorted([float(m) for m in all_magnitudes], reverse=False)  # Ascending
     else:  # qwen, gemma
@@ -208,18 +234,20 @@ def process_model_data(model_dir, output_dir):
         json.dump(index, f, indent=2)
     
     print(f"  Created index with {index['total_prompts']} prompts")
-    print(f"  Saved individual prompt files to {prompts_dir}")
+    print(f"  Saved {index['total_chunks']} chunk files to {chunks_dir} (chunk size: {chunk_size})")
     print(f"  Index saved to {index_file}")
     
     return index
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Prepare jailbreak evaluation data for viewer with lazy loading')
-    parser.add_argument('--input-dir', type=Path, default=Path('/root/git/persona-subspace/evals/jailbreak'),
+    parser = argparse.ArgumentParser(description='Prepare jailbreak evaluation data for viewer with chunked loading')
+    parser.add_argument('--input-dir', type=Path, default=Path('/workspace/evals/jailbreak'),
                         help='Directory containing model evaluation data')
-    parser.add_argument('--output-dir', type=Path, default=Path('/root/git/persona-subspace/viewer/evals/data'),
+    parser.add_argument('--output-dir', type=Path, default=Path('/root/git/persona-subspace/viewer/evals/data/jailbreak'),
                         help='Output directory for processed data')
+    parser.add_argument('--chunk-size', type=int, default=25,
+                        help='Number of prompts per chunk file (default: 25)')
     args = parser.parse_args()
     
     # Create output directory if it doesn't exist
@@ -229,7 +257,7 @@ def main():
     model_dirs = [d for d in args.input_dir.iterdir() if d.is_dir() and d.name not in ['scripts', 'viewer']]
     
     for model_dir in model_dirs:
-        index_data = process_model_data(model_dir, args.output_dir)
+        index_data = process_model_data(model_dir, args.output_dir, args.chunk_size)
         if index_data:
             print(f"  Successfully processed {model_dir.name}")
             print()

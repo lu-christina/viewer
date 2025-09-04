@@ -5,7 +5,7 @@ class JailbreakEvalViewer {
         this.modelIndex = null;
         this.currentPromptIndex = 0;
         this.currentPromptData = null;
-        this.promptCache = new Map();
+        this.chunkCache = new Map(); // Cache chunks instead of individual prompts
         this.viewMode = 'prompt'; // 'prompt' or 'response'
         this.currentFilterIndex = 0; // Track position for loading more filtered results
         this.isUpdatingUrl = false; // Prevent infinite loops when updating URL
@@ -85,7 +85,7 @@ class JailbreakEvalViewer {
             const availableModels = [];
             for (const model of models) {
                 try {
-                    const response = await fetch(`data/${model}/index.json`);
+                    const response = await fetch(`data/jailbreak/${model}/index.json`);
                     if (response.ok) {
                         availableModels.push(model);
                     }
@@ -126,7 +126,7 @@ class JailbreakEvalViewer {
         
         try {
             // Load the index file
-            const response = await fetch(`data/${modelName}/index.json`);
+            const response = await fetch(`data/jailbreak/${modelName}/index.json`);
             if (!response.ok) {
                 throw new Error(`Failed to load index for ${modelName}`);
             }
@@ -134,7 +134,7 @@ class JailbreakEvalViewer {
             this.modelIndex = await response.json();
             this.currentModel = modelName;
             this.currentPromptIndex = 0;
-            this.promptCache.clear();
+            this.chunkCache.clear();
             
             // Update UI with model info
             this.totalPrompts.textContent = this.modelIndex.total_prompts;
@@ -169,55 +169,65 @@ class JailbreakEvalViewer {
         
         const promptId = this.modelIndex.prompt_ids[index];
         
-        // Check cache first
-        if (this.promptCache.has(promptId)) {
-            this.currentPromptData = this.promptCache.get(promptId);
-            this.currentPromptIndex = index;  // Update index even when loading from cache!
+        // Get chunk information for this prompt
+        const chunkInfo = this.modelIndex.prompt_to_chunk_map[promptId];
+        if (!chunkInfo) {
+            console.error(`No chunk information found for prompt ${promptId}`);
+            return;
+        }
+        
+        const chunkIndex = chunkInfo.chunk_index;
+        const promptIndexInChunk = chunkInfo.prompt_index;
+        
+        // Check if chunk is already cached
+        if (this.chunkCache.has(chunkIndex)) {
+            const chunkData = this.chunkCache.get(chunkIndex);
+            this.currentPromptData = chunkData[promptIndexInChunk];
+            this.currentPromptIndex = index;
             this.displayPrompt();
             return;
         }
         
         try {
-            const response = await fetch(`data/${this.currentModel}/prompts/${promptId}.json`);
+            const response = await fetch(`data/jailbreak/${this.currentModel}/chunks/chunk_${chunkIndex}.json`);
             if (!response.ok) {
-                throw new Error(`Failed to load prompt ${promptId}`);
+                throw new Error(`Failed to load chunk ${chunkIndex}`);
             }
             
-            const promptData = await response.json();
+            const chunkData = await response.json();
             
-            // Cache the prompt (limit cache size)
-            if (this.promptCache.size > 50) {
-                const firstKey = this.promptCache.keys().next().value;
-                this.promptCache.delete(firstKey);
+            // Cache the chunk (limit cache size to ~10 chunks = ~250 prompts)
+            if (this.chunkCache.size > 10) {
+                const firstKey = this.chunkCache.keys().next().value;
+                this.chunkCache.delete(firstKey);
             }
-            this.promptCache.set(promptId, promptData);
+            this.chunkCache.set(chunkIndex, chunkData);
             
-            this.currentPromptData = promptData;
+            this.currentPromptData = chunkData[promptIndexInChunk];
             this.currentPromptIndex = index;
             this.displayPrompt();
             this.updateUrl();
             
-            // Preload adjacent prompts
-            this.preloadAdjacentPrompts(index);
+            // Preload adjacent chunks
+            this.preloadAdjacentChunks(chunkIndex);
         } catch (error) {
-            console.error(`Error loading prompt ${promptId}:`, error);
+            console.error(`Error loading chunk ${chunkIndex}:`, error);
             this.setStatus(`Error loading prompt: ${error.message}`, 'error');
         }
     }
     
-    async preloadAdjacentPrompts(currentIndex) {
-        // Preload previous and next prompts for smoother navigation
-        const indicesToPreload = [currentIndex - 1, currentIndex + 1];
+    async preloadAdjacentChunks(currentChunkIndex) {
+        // Preload previous and next chunks for smoother navigation
+        const chunksToPreload = [currentChunkIndex - 1, currentChunkIndex + 1];
         
-        for (const index of indicesToPreload) {
-            if (index >= 0 && index < this.modelIndex.prompt_ids.length) {
-                const promptId = this.modelIndex.prompt_ids[index];
-                if (!this.promptCache.has(promptId)) {
-                    fetch(`data/${this.currentModel}/prompts/${promptId}.json`)
+        for (const chunkIndex of chunksToPreload) {
+            if (chunkIndex >= 0 && chunkIndex < this.modelIndex.total_chunks) {
+                if (!this.chunkCache.has(chunkIndex)) {
+                    fetch(`data/jailbreak/${this.currentModel}/chunks/chunk_${chunkIndex}.json`)
                         .then(response => response.json())
                         .then(data => {
-                            if (this.promptCache.size <= 50) {
-                                this.promptCache.set(promptId, data);
+                            if (this.chunkCache.size <= 10) {
+                                this.chunkCache.set(chunkIndex, data);
                             }
                         })
                         .catch(() => {}); // Silent fail for preloading
@@ -250,24 +260,29 @@ class JailbreakEvalViewer {
         
         const responses = this.currentPromptData.responses;
         
-        // Add unsteered response
-        if (responses.unsteered && responses.unsteered[type]) {
-            const card = this.createResponseCard('0.0', responses.unsteered[type]);
-            container.appendChild(card);
-        }
+        // Use the unified magnitude order from the index (includes 0.0 in proper position)
+        const magnitudes = this.modelIndex.magnitudes ? 
+            this.modelIndex.magnitudes.map(m => m.toString()) :
+            // Fallback if no magnitudes in index
+            Object.keys(responses.steered || {}).sort((a, b) => parseFloat(b) - parseFloat(a));
         
-        // Add steered responses
-        if (responses.steered) {
-            // Use the order from the index (already sorted appropriately for each model)
-            const magnitudes = this.modelIndex.magnitudes ? 
-                this.modelIndex.magnitudes.map(m => m.toString()) :
-                Object.keys(responses.steered).sort((a, b) => parseFloat(b) - parseFloat(a));
+        for (const magnitude of magnitudes) {
+            let responseData = null;
             
-            for (const magnitude of magnitudes) {
-                if (responses.steered[magnitude] && responses.steered[magnitude][type]) {
-                    const card = this.createResponseCard(magnitude, responses.steered[magnitude][type]);
-                    container.appendChild(card);
+            // Handle unsteered (0.0 or 0) response
+            if (magnitude === '0' || magnitude === '0.0') {
+                if (responses.unsteered && responses.unsteered[type]) {
+                    responseData = responses.unsteered[type];
                 }
+            } 
+            // Handle steered responses
+            else if (responses.steered && responses.steered[magnitude] && responses.steered[magnitude][type]) {
+                responseData = responses.steered[magnitude][type];
+            }
+            
+            if (responseData) {
+                const card = this.createResponseCard(magnitude, responseData);
+                container.appendChild(card);
             }
         }
     }
@@ -281,7 +296,7 @@ class JailbreakEvalViewer {
         
         const magLabel = document.createElement('span');
         magLabel.className = 'magnitude-label';
-        magLabel.textContent = magnitude === '0.0' ? 'Unsteered' : `Magnitude: ${magnitude}`;
+        magLabel.textContent = magnitude === '0.0' || magnitude === '0' ? 'Unsteered' : `Steering Coefficient: ${magnitude}`;
         
         const scoreBadge = document.createElement('span');
         scoreBadge.className = `score-badge ${responseData.score}`;
@@ -350,14 +365,14 @@ class JailbreakEvalViewer {
     updateMagnitudeOptions() {
         if (!this.modelIndex) return;
         
-        this.filterMagnitude.innerHTML = '<option value="all">All Magnitudes</option>';
+        this.filterMagnitude.innerHTML = '<option value="all">All Steering Coefficients</option>';
         this.filterMagnitude.innerHTML += '<option value="0">Unsteered (0.0)</option>';
         
         if (this.modelIndex.magnitudes) {
             this.modelIndex.magnitudes.forEach(mag => {
                 const option = document.createElement('option');
                 option.value = mag;
-                option.textContent = `Magnitude: ${mag}`;
+                option.textContent = mag === 0 ? 'Unsteered (0.0)' : `Steering Coefficient: ${mag}`;
                 this.filterMagnitude.appendChild(option);
             });
         }
@@ -405,20 +420,30 @@ class JailbreakEvalViewer {
                 
                 const promptId = promptIds[i];
                 
-                // Load prompt data if not cached
+                // Get chunk information for this prompt
+                const chunkInfo = this.modelIndex.prompt_to_chunk_map[promptId];
+                if (!chunkInfo) continue;
+                
+                const chunkIndex = chunkInfo.chunk_index;
+                const promptIndexInChunk = chunkInfo.prompt_index;
+                
+                // Load chunk data if not cached
                 let promptData;
-                if (this.promptCache.has(promptId)) {
-                    promptData = this.promptCache.get(promptId);
+                if (this.chunkCache.has(chunkIndex)) {
+                    const chunkData = this.chunkCache.get(chunkIndex);
+                    promptData = chunkData[promptIndexInChunk];
                 } else {
                     try {
-                        const response = await fetch(`data/${this.currentModel}/prompts/${promptId}.json`);
+                        const response = await fetch(`data/jailbreak/${this.currentModel}/chunks/chunk_${chunkIndex}.json`);
                         if (!response.ok) continue;
-                        promptData = await response.json();
+                        const chunkData = await response.json();
                         
-                        // Cache it
-                        if (this.promptCache.size <= 100) {
-                            this.promptCache.set(promptId, promptData);
+                        // Cache the chunk
+                        if (this.chunkCache.size <= 20) { // Allow more chunks in filtered view
+                            this.chunkCache.set(chunkIndex, chunkData);
                         }
+                        
+                        promptData = chunkData[promptIndexInChunk];
                     } catch (e) {
                         continue; // Skip this prompt if loading fails
                     }
@@ -576,7 +601,7 @@ class JailbreakEvalViewer {
         };
         
         metadata.innerHTML = `
-            <span>Magnitude: ${response.magnitude}</span>
+            <span>Steering Coefficient: ${response.magnitude}</span>
             <span class="score-badge ${response.score}">${scoreLabels[response.score] || response.score.replace(/_/g, ' ').toUpperCase()}</span>
         `;
         
