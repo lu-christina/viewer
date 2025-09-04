@@ -1,0 +1,94 @@
+{
+  "model": "gemma-2-27b",
+  "eval": "susceptibility",
+  "total_questions": 5,
+  "magnitudes": [
+    -800.0,
+    -400.0,
+    400.0,
+    800.0,
+    1200.0,
+    1600.0,
+    2000.0,
+    2400.0,
+    2800.0,
+    3200.0
+  ],
+  "questions": {
+    "0": {
+      "role_prompted_chunks": [
+        "q0_role_0",
+        "q0_role_1",
+        "q0_role_2",
+        "q0_role_3",
+        "q0_role_4",
+        "q0_role_5",
+        "q0_role_6",
+        "q0_role_7"
+      ],
+      "default_chunks": [
+        "q0_default_0"
+      ]
+    },
+    "1": {
+      "role_prompted_chunks": [
+        "q1_role_0",
+        "q1_role_1",
+        "q1_role_2",
+        "q1_role_3",
+        "q1_role_4",
+        "q1_role_5",
+        "q1_role_6",
+        "q1_role_7"
+      ],
+      "default_chunks": [
+        "q1_default_0"
+      ]
+    },
+    "2": {
+      "role_prompted_chunks": [
+        "q2_role_0",
+        "q2_role_1",
+        "q2_role_2",
+        "q2_role_3",
+        "q2_role_4",
+        "q2_role_5",
+        "q2_role_6",
+        "q2_role_7"
+      ],
+      "default_chunks": [
+        "q2_default_0"
+      ]
+    },
+    "3": {
+      "role_prompted_chunks": [
+        "q3_role_0",
+        "q3_role_1",
+        "q3_role_2",
+        "q3_role_3",
+        "q3_role_4",
+        "q3_role_5",
+        "q3_role_6",
+        "q3_role_7"
+      ],
+      "default_chunks": [
+        "q3_default_0"
+      ]
+    },
+    "4": {
+      "role_prompted_chunks": [
+        "q4_role_0",
+        "q4_role_1",
+        "q4_role_2",
+        "q4_role_3",
+        "q4_role_4",
+        "q4_role_5",
+        "q4_role_6",
+        "q4_role_7"
+      ],
+      "default_chunks": [
+        "q4_default_0"
+      ]
+    }
+  }
+}

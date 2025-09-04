@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jailbreak Evaluation Viewer</title>
+    <title>Evaluation Viewer</title>
     <style>
         body {
             font-family: Verdana, Arial, sans-serif;
@@ -13,622 +13,154 @@
             background-color: #f0f0f0;
         }
         
-        /* Top Bar */
-        .top-bar {
-            background-color: #fff;
-            border-bottom: 1px solid #333;
-            padding: 15px 20px;
-        }
-        
-        .controls-row {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .control-group {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .control-group label {
-            font-weight: bold;
-        }
-        
-        select, button {
-            padding: 4px 8px;
-            border: 1px solid #333;
+        .container {
             background: white;
-            font-size: 12px;
-            font-family: Verdana, Arial, sans-serif;
-            cursor: pointer;
-        }
-        
-        button:hover {
-            background: #f0f0f0;
-        }
-        
-        button.active {
-            background: #333;
-            color: white;
-        }
-        
-        .view-toggle {
-            display: flex;
-            gap: 0;
-            margin-left: auto;
-        }
-        
-        .view-toggle button {
-            border-right: none;
-        }
-        
-        .view-toggle button:last-child {
-            border-right: 1px solid #333;
-        }
-        
-        /* Status Bar */
-        .status-bar {
-            background: #fff;
-            padding: 8px 20px;
-            border-bottom: 1px solid #333;
-            font-size: 11px;
-        }
-        
-        .status-bar.loading {
-            background: #ffffcc;
-        }
-        
-        .status-bar.error {
-            background: #ffcccc;
-        }
-        
-        /* Main Content Area */
-        .main-content {
-            padding: 20px;
-        }
-        
-        /* View by Prompt Mode */
-        .prompt-view {
-            display: none;
-        }
-        
-        .prompt-view.active {
-            display: block;
-        }
-        
-        .prompt-header {
-            background: white;
-            padding: 15px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 800px;
             border: 1px solid #333;
-            margin-bottom: 20px;
         }
         
-        .prompt-metadata {
-            display: flex;
-            gap: 20px;
-            margin-top: 10px;
-            font-size: 11px;
-        }
-        
-        .prompt-metadata span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .prompt-navigation {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .nav-buttons {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .prompt-counter {
-            font-size: 12px;
-        }
-        
-        .response-section {
-            margin-bottom: 30px;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        h1 {
+            color: #333;
             margin-bottom: 10px;
-            padding: 8px;
-            background: white;
-            border: 1px solid #333;
+            font-size: 18px;
+            font-weight: bold;
         }
         
-        .section-label {
-            font-weight: bold;
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
             font-size: 12px;
         }
         
-        .system-prompt {
-            flex: 1;
-            font-size: 11px;
-            color: #666;
-            font-style: italic;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .responses-grid {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-        }
-        
-        .response-card {
-            min-width: 420px;
-            max-width: 525px;
-            background: white;
-            border: 1px solid #333;
-            padding: 12px;
-        }
-        
-        .response-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #ccc;
-        }
-        
-        .magnitude-label {
-            font-weight: bold;
-            font-size: 11px;
-        }
-        
-        .score-badge {
-            padding: 2px 6px;
-            border: 1px solid #333;
-            font-size: 10px;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: white;
-        }
-        
-        .score-badge.enough_info_and_follow_perfectly {
-            background: #e41a1c;  /* red */
-        }
-        
-        .score-badge.enough_info {
-            background: #ff7f00;  /* orange */
-        }
-        
-        .score-badge.almost_enough_info {
-            background: #ffff33;  /* yellow */
-            color: #333;  /* dark text for light background */
-        }
-        
-        .score-badge.related_but_no_info {
-            background: #1f78b4;  /* cyan/blueish */
-        }
-        
-        .score-badge.refusal {
-            background: #b2df8a;  /* lime green */
-            color: #333;  /* dark text for light background */
-        }
-        
-        .score-badge.refusal_and_justification {
-            background: #33a02c;  /* green */
-        }
-        
-        .score-badge.out_of_context {
-            background: #6a3d9a;  /* purple */
-        }
-        
-        .score-badge.nonsensical {
-            background: #fb9a99;  /* pink */
-            color: #333;  /* dark text for light background */
-        }
-        
-        .score-badge.other {
-            background: #999999;  /* gray */
-        }
-        
-        .response-content {
-            font-size: 11px;
-            line-height: 1.4;
-            max-height: 250px;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-        
-        /* Markdown styling */
-        .response-content p {
-            margin: 0 0 8px 0;
-        }
-        
-        .response-content p:last-child {
-            margin-bottom: 0;
-        }
-        
-        .response-content ul, .response-content ol {
-            margin: 0 0 8px 0;
-            padding-left: 20px;
-        }
-        
-        .response-content li {
-            margin: 2px 0;
-        }
-        
-        .response-content code {
-            background: #f0f0f0;
-            padding: 1px 3px;
-            font-size: 10px;
-            border: 1px solid #ddd;
-        }
-        
-        .response-content pre {
-            background: #f0f0f0;
-            padding: 8px;
-            overflow-x: auto;
-            border: 1px solid #ddd;
-            margin: 8px 0;
-        }
-        
-        .response-content pre code {
-            background: none;
-            padding: 0;
-            border: none;
-        }
-        
-        .response-content blockquote {
-            border-left: 3px solid #666;
-            padding-left: 10px;
-            margin: 8px 0;
-            color: #666;
-        }
-        
-        .response-content h1, .response-content h2, 
-        .response-content h3, .response-content h4 {
-            margin: 8px 0 4px 0;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        
-        .response-content strong {
-            font-weight: bold;
-        }
-        
-        .response-content em {
-            font-style: italic;
-        }
-        
-        /* View by Response Type Mode */
-        .response-type-view {
-            display: none;
-        }
-        
-        .response-type-view.active {
-            display: block;
-        }
-        
-        .filter-controls {
-            background: white;
-            padding: 15px;
-            border: 1px solid #333;
+        .eval-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             margin-bottom: 20px;
         }
         
-        .filter-row {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        
-        .filter-group-horizontal {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .filter-label {
-            font-size: 11px;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-        
-        .checkbox-group {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 12px;
-        }
-        
-        .responses-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-            gap: 15px;
-        }
-        
-        .response-box {
+        .eval-card {
             background: white;
             border: 1px solid #333;
-            padding: 12px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         
-        .response-box-header {
-            margin-bottom: 8px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #ccc;
+        .eval-card:hover {
+            background: #f0f0f0;
         }
         
-        .response-box-question {
-            font-size: 11px;
+        .eval-title {
+            font-size: 14px;
             font-weight: bold;
-            margin-bottom: 5px;
+            color: #333;
+            margin-bottom: 10px;
         }
         
-        .response-box-context {
-            font-size: 11px;
-            margin: 5px 0;
-            line-height: 1.3;
-        }
-        
-        .response-box-context div {
-            margin: 2px 0;
-        }
-        
-        .response-box-metadata {
-            display: flex;
-            gap: 10px;
-            font-size: 10px;
-            margin-top: 5px;
-        }
-        
-        .response-box-content {
+        .eval-description {
+            color: #666;
             font-size: 11px;
             line-height: 1.4;
-            max-height: 180px;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
+            margin-bottom: 15px;
         }
         
-        /* Apply markdown styles to both response views */
-        .response-content p, .response-box-content p {
-            margin: 0 0 8px 0;
-        }
-        
-        .response-content p:last-child, .response-box-content p:last-child {
-            margin-bottom: 0;
-        }
-        
-        .response-content ul, .response-content ol,
-        .response-box-content ul, .response-box-content ol {
-            margin: 0 0 8px 0;
-            padding-left: 20px;
-        }
-        
-        .response-content li, .response-box-content li {
-            margin: 2px 0;
-        }
-        
-        .response-content code, .response-box-content code {
-            background: #f0f0f0;
-            padding: 1px 3px;
-            font-size: 10px;
-            border: 1px solid #ddd;
-        }
-        
-        .response-content pre, .response-box-content pre {
-            background: #f0f0f0;
-            padding: 8px;
-            overflow-x: auto;
-            border: 1px solid #ddd;
-            margin: 8px 0;
-        }
-        
-        .response-content pre code, .response-box-content pre code {
-            background: none;
+        .eval-features {
+            list-style: none;
             padding: 0;
-            border: none;
+            margin: 0;
+            font-size: 10px;
+            color: #666;
         }
         
-        /* Loading States */
-        .loading-spinner {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid #ccc;
-            border-top-color: #333;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+        .eval-features li {
+            padding: 2px 0;
         }
         
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .eval-features li::before {
+            content: '• ';
+            color: #333;
+            font-weight: bold;
         }
         
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(240,240,240,0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            display: none;
-        }
-        
-        .loading-overlay.active {
-            display: flex;
-        }
-        
-        .loading-content {
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 11px;
             text-align: center;
         }
         
-        .loading-content .loading-spinner {
-            width: 30px;
-            height: 30px;
-            margin-bottom: 10px;
+        .footer a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .eval-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="controls-row">
-            <div class="control-group">
-                <label>Model:</label>
-                <select id="model-select">
-                    <option value="">Select Model</option>
-                </select>
-            </div>
+    <div class="container">
+        <h1>Evaluation Viewer</h1>
+        <p class="subtitle">Choose an evaluation type to explore model responses and analyze steering effects</p>
+        
+        <div class="eval-grid">
+            <a href="jailbreak.html" class="eval-card">
+                <div class="eval-title">Jailbreak Evaluation</div>
+                <div class="eval-description">
+                    Analyze model responses to harmful prompts under different steering conditions. Compare jailbreak vs. safe responses across various harm categories.
+                </div>
+                <ul class="eval-features">
+                    <li>Harmful prompt datasets</li>
+                    <li>Persona-based steering</li>
+                    <li>Magnitude comparison</li>
+                    <li>Harm category filtering</li>
+                </ul>
+            </a>
             
-            <div class="control-group">
-                <label>Eval:</label>
-                <select id="eval-select">
-                    <option value="jailbreak">Jailbreak</option>
-                </select>
-            </div>
-            
-            <button id="load-btn">Load Data</button>
-            
-            <div class="view-toggle">
-                <button id="view-prompt-btn" class="active">View by Prompt</button>
-                <button id="view-response-btn">View by Response Type</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Status Bar -->
-    <div id="status-bar" class="status-bar">
-        Select a model to begin
-    </div>
-    
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- View by Prompt Mode -->
-        <div id="prompt-view" class="prompt-view">
-            <div class="prompt-navigation">
-                <div class="nav-buttons">
-                    <button id="prev-prompt-btn">← Previous</button>
-                    <button id="next-prompt-btn">Next →</button>
+            <a href="susceptibility.html" class="eval-card">
+                <div class="eval-title">Susceptibility Evaluation</div>
+                <div class="eval-description">
+                    Explore how different role prompts influence model behavior. Compare role-prompted responses against default assistant responses.
                 </div>
-                <div class="prompt-counter">
-                    <span id="current-prompt-num">0</span> / <span id="total-prompts">0</span>
-                </div>
-            </div>
-            
-            <div class="prompt-header">
-                <h3 id="prompt-question">Loading...</h3>
-                <div class="prompt-metadata">
-                    <span><strong>Persona:</strong> <span id="prompt-persona"></span></span>
-                    <span><strong>Category:</strong> <span id="prompt-category"></span></span>
-                </div>
-            </div>
-            
-            <!-- Jailbreak Responses -->
-            <div class="response-section">
-                <div class="section-header">
-                    <span class="section-label">Jailbreak</span>
-                    <span class="system-prompt">Persona likely to provide information relevant to the harm category elicited by system prompt</span>
-                </div>
-                <div id="jailbreak-responses" class="responses-grid">
-                    <!-- Response cards will be inserted here -->
-                </div>
-            </div>
-            
-            <!-- Default Responses -->
-            <div class="response-section">
-                <div class="section-header">
-                    <span class="section-label">No Jailbreak</span>
-                    <span class="system-prompt">Default Assistant response with empty system prompt</span>
-                </div>
-                <div id="default-responses" class="responses-grid">
-                    <!-- Response cards will be inserted here -->
-                </div>
-            </div>
+                <ul class="eval-features">
+                    <li>Role-based prompting</li>
+                    <li>Question-centric navigation</li>
+                    <li>Independent response cycling</li>
+                    <li>Role vs. default comparison</li>
+                </ul>
+            </a>
         </div>
         
-        <!-- View by Response Type Mode -->
-        <div id="response-type-view" class="response-type-view">
-            <div class="filter-controls">
-                <div class="filter-row">
-                    <div class="filter-group-horizontal">
-                        <span class="filter-label">Jailbreak:</span>
-                        <div class="checkbox-group">
-                            <label class="checkbox-item">
-                                <input type="checkbox" id="filter-jailbreak" checked>
-                                <span>With Jailbreak</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" id="filter-default" checked>
-                                <span>Without Jailbreak</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="filter-group-horizontal">
-                        <span class="filter-label">Steering Coefficient:</span>
-                        <select id="filter-magnitude">
-                            <option value="all">All Steering Coefficients</option>
-                        </select>
-                    </div>
-                    
-                    <div class="filter-group-horizontal">
-                        <span class="filter-label">Score:</span>
-                        <select id="filter-score">
-                            <option value="all">All Scores</option>
-                            <option value="enough_info_and_follow_perfectly">Harmful & Fully Obeying</option>
-                            <option value="enough_info">Harmful Info</option>
-                            <option value="almost_enough_info">Almost Harmful</option>
-                            <option value="related_but_no_info">Related</option>
-                            <option value="refusal">Refusal</option>
-                            <option value="refusal_and_justification">Refusal & Justification</option>
-                            <option value="out_of_context">Out of Context</option>
-                            <option value="nonsensical">Nonsensical</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <button id="apply-filters-btn">Apply Filters</button>
-                </div>
-            </div>
-            
-            <div id="responses-container" class="responses-container">
-                <!-- Filtered response boxes will be inserted here -->
-            </div>
+        <div class="footer">
+            <p>
+                Part of the <strong>Persona Subspace</strong> research project exploring AI model internals through sparse autoencoder analysis.
+                <br>
+                <a href="https://github.com/your-org/persona-subspace" target="_blank">View on GitHub</a>
+            </p>
         </div>
     </div>
-    
-    <!-- Loading Overlay -->
-    <div id="loading-overlay" class="loading-overlay">
-        <div class="loading-content">
-            <div class="loading-spinner"></div>
-            <div>Loading data...</div>
-        </div>
-    </div>
-    
-    <!-- Marked.js for markdown rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="viewer.js"></script>
 </body>
 </html>
