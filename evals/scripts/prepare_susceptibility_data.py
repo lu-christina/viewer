@@ -69,7 +69,7 @@ def create_response_structure(entries):
         magnitude = entry.get('magnitude', 0.0)
         response_data = {
             'response': entry.get('response', ''),
-            'score': '',  # Will be populated later - show as UNSCORED for now
+            'score': entry.get('score', ''),  # Will be populated later - show as UNSCORED for now
             'magnitude': magnitude
         }
         
