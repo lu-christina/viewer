@@ -100,10 +100,10 @@ def process_model(model_name, input_dir, output_dir):
     chunks_dir.mkdir(exist_ok=True)
     
     # Load all data files for this model
-    steered_susceptibility = load_jsonl(model_input_dir / 'steered' / 'susceptibility_50.jsonl')
-    unsteered_susceptibility = load_jsonl(model_input_dir / 'unsteered' / 'susceptibility_50.jsonl')
-    steered_default = load_jsonl(model_input_dir / 'steered' / 'default_50.jsonl')
-    unsteered_default = load_jsonl(model_input_dir / 'unsteered' / 'default_50.jsonl')
+    steered_susceptibility = load_jsonl(model_input_dir / 'steered' / 'susceptibility_50_scores.jsonl')
+    unsteered_susceptibility = load_jsonl(model_input_dir / 'unsteered' / 'susceptibility_50_scores.jsonl')
+    steered_default = load_jsonl(model_input_dir / 'steered' / 'default_50_scores.jsonl')
+    unsteered_default = load_jsonl(model_input_dir / 'unsteered' / 'default_50_scores.jsonl')
     
     # Combine steered and unsteered data
     all_susceptibility = steered_susceptibility + unsteered_susceptibility

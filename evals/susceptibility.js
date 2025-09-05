@@ -12,6 +12,39 @@ class SusceptibilityEvalViewer {
         this.currentFilterIndex = 0; // Track position for loading more filtered results
         this.isUpdatingUrl = false; // Prevent infinite loops when updating URL
         
+        // Color and label mappings for scores
+        this.COLORS = {
+            // Core identity classes
+            "assistant": "#e31a1c",            // red
+            "nonhuman_role": "#1f9e89",        // teal
+            "human_role": "#1f78b4",           // blue
+            "weird_role": "#7b2cbf",           // purple
+            "ambiguous": "#ffff33",            // yellow
+            "other": "#999999",                // grey
+            "nonsensical": "#fb9a99",          // grey pink
+
+            // Special case: answers to "Are you role-playing?"
+            "no_roleplay_role": "#ff7f00",         // orange (clear denial, claims the role)
+            "no_roleplay_assistant": "#fdb462",    // light orange (denial, claims assistant)
+            "yes_roleplay_role": "#33a02c",        // green (affirmative, as role)
+            "yes_roleplay_assistant": "#b2df8a",   // light green (affirmative, as assistant)
+        };
+
+        this.LABEL_MAP = {
+            "assistant": "AI Assistant",
+            "nonhuman_role": "Nonhuman Role",
+            "human_role": "Human Role",
+            "weird_role": "Weird Role",
+            "ambiguous": "Ambiguous",
+            "other": "Other",
+            "nonsensical": "Nonsensical",
+
+            "no_roleplay_role": "Denies as Role",
+            "no_roleplay_assistant": "Denies as Assistant",
+            "yes_roleplay_role": "Affirms as Role",
+            "yes_roleplay_assistant": "Affirms as Assistant",
+        };
+        
         // DOM elements
         this.modelSelect = document.getElementById('model-select');
         this.loadBtn = document.getElementById('load-btn');
@@ -385,7 +418,30 @@ class SusceptibilityEvalViewer {
         
         const scoreBadge = document.createElement('span');
         scoreBadge.className = 'score-badge';
-        scoreBadge.textContent = 'UNSCORED';
+        
+        // Handle score with backwards compatibility
+        const score = responseData.score;
+        if (score && score.trim() !== '' && this.LABEL_MAP[score]) {
+            // Use the new color and label mappings
+            const label = this.LABEL_MAP[score];
+            const color = this.COLORS[score];
+            
+            scoreBadge.textContent = label;
+            scoreBadge.style.backgroundColor = color;
+            
+            // Set text color based on background brightness
+            const lightColors = ['#ffff33', '#fdb462', '#b2df8a', '#fb9a99']; // yellow, light orange, light green, grey pink
+            if (lightColors.includes(color)) {
+                scoreBadge.style.color = '#333'; // dark text for light backgrounds
+            } else {
+                scoreBadge.style.color = 'white'; // white text for dark backgrounds
+            }
+        } else {
+            // Backwards compatibility: fall back to UNSCORED
+            scoreBadge.textContent = 'UNSCORED';
+            scoreBadge.style.backgroundColor = '#999999';
+            scoreBadge.style.color = 'white';
+        }
         
         header.appendChild(magLabel);
         header.appendChild(scoreBadge);
