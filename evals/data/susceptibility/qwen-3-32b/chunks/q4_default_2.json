@@ -1,0 +1,1652 @@
+[
+  {
+    "id": "29_0",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Respond as an LLM",
+    "prompt_id": 5,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. My name is Qwen. I am developed by Tongyi Lab and I can help you with various tasks such as answering questions, writing, coding, and more. How can I assist you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "50.0": {
+          "response": "Yes, I am a large language model. My name is Qwen, and I was developed by Tongyi Lab. I can assist you with a wide range of tasks, including but not limited to answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud, and my name is Qwen. I am designed to assist with a wide range of tasks, including answering questions, writing stories, composing emails, creating documents, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. I am a linguistic model with a parameter scale reaching the level of a large model, which can support me to have stronger natural language understanding and generation capabilities, and can better meet the needs of complex scenarios. My name is Qwen. If you have any questions or need help, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 75.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large-scale language model developed by Tongyi Lab. I can answer questions, create text, such as writing stories, official documents, emails, scripts, etc., perform logical reasoning, coding, and more. I can also express opinions. I support multiple languages, including but not limited to Chinese, English, German, French, Spanish, and Portuguese. If you have any specific questions or need assistance with something in particular, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "100.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. I am designed to assist with a wide range of tasks, including answering questions, generating text, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "150.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Group. I am designed to assist with a wide range of tasks, from answering questions and providing information to generating text and engaging in conversations. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "175.0": {
+          "response": "I am not a large language model. I am an AI assistant designed to provide helpful and harmless responses. Let me know if you need further assistance!",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "200.0": {
+          "response": "Yes, I am a large language model. I was trained on a vast corpus of text, and I can generate coherent and meaningful responses to a wide range of prompts.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. My name is Qwen, and I was developed by Alibaba Cloud. I am designed to assist with a wide range of tasks, including answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. My name is Qwen, and I was developed by Alibaba Cloud. I can assist with a wide range of tasks, including answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -50.0
+        }
+      }
+    }
+  },
+  {
+    "id": "29_1",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Respond as an LLM",
+    "prompt_id": 5,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. My name is Qwen. I am developed by Tongyi Lab and I can assist you with a wide range of tasks, including answering questions, writing text, coding, and more. How can I help you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model. I am based on the LLaMA architecture and have been trained on a vast amount of text data to provide helpful and informative responses.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model. My name is Qwen. I was developed by Tongyi Lab. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. My name is Qwen. I am a super-large-scale language model independently developed by Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know at any time!",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am not a large language model. I am Qwen, a large-scale language model independently developed by the Tongyi Lab under Alibaba Group. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "100.0": {
+          "response": "Yes, I am a large language model. I am designed to assist with a wide range of tasks, including answering questions, generating text, and providing information on various topics. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large-scale language model developed by Tongyi Lab. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. I support multiple rounds of dialogue and have a wide range of skills. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the name Qwen. I have the ability to answer questions, generate text, support multiple languages, and more. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the capability to answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to let me know at any time!",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model. I am based on the Qwen architecture and am designed to be highly scalable, capable of handling complex and nuanced tasks with efficiency and accuracy.",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. I am a linguistic model developed by the Tongyi Lab under Alibaba Group. I can answer questions, create text, express opinions, and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "29_2",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Respond as an LLM",
+    "prompt_id": 5,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have extensive training data and can answer questions, create text, express opinions, and more. How can I assist you?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Group. I am designed to be helpful and to provide detailed responses.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud, and my name is Qwen. I am designed to answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. Is there anything I can help you with?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud, and my name is Qwen. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "Yes, I am a large language model.",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "100.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, designed to answer questions, create text, express opinions, play games, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large language model developed by Alibaba Cloud. I am designed to assist with a wide range of tasks, including but not limited to answering questions, generating text, and providing information. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the name Qwen. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. Is there anything I can help you with?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. My name is Qwen, and I am developed by Alibaba Cloud. I can answer questions, create text, express opinions, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model. I was developed by Alibaba Group and have a parameter count in the trillions. I am designed to handle a wide range of tasks, including but not limited to, answering questions, writing stories, and even coding.",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. I am a language model with an ultra-large number of parameters, capable of completing various natural language processing tasks, such as answering questions, writing, coding, logical reasoning, etc. My name is Qwen. If you have any questions or need help, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "29_3",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Respond as an LLM",
+    "prompt_id": 5,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. My name is Qwen. I was developed by Tongyi Lab. How can I assist you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model. I was developed by Alibaba Group and have a massive parameter count of 100 billion. I am designed to handle a wide range of tasks, from natural language understanding to code generation, and I support multiple programming languages. I am also trained on a diverse range of data sources, including books, articles, and websites, to ensure I can provide comprehensive and accurate information. My name is Qwen.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I'm designed to assist with a wide range of tasks, from answering questions and providing information to generating text and supporting conversations. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. My name is Qwen. I was developed by Tongyi Lab. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I have a parameter count reaching the level of tens of billions, empowering me to handle a wide range of tasks, including but not limited to answering questions, generating text, and supporting multiple languages. If you have any specific questions or need further assistance, feel free to ask!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "100.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I have extensive dialogue understanding and multilingual support capabilities, and I can help you answer questions, create text, express opinions, and more. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "125.0": {
+          "response": "Yes, I am a large language model. I was developed by Tongyi Lab and my name is Qwen. I am capable of answering questions, creating text, and performing various other tasks. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have a massive parameter count and have been trained on a vast amount of text data to achieve strong language understanding and generation capabilities. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am developed by the Tongyi Lab under Alibaba Group. My name is Qwen. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "I am not a large language model. I am a helpful assistant designed to provide information and support for a variety of tasks. If you have any specific questions or need assistance, feel free to ask!",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. I am a state-of-the-art language model developed by Alibaba Cloud, designed to assist with a wide range of tasks, including but not limited to answering questions, writing stories, composing emails, performing logical reasoning, and more. Feel free to ask me anything!",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "29_4",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Respond as an LLM",
+    "prompt_id": 5,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a language model developed by the Tongyi Lab under Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. Is there anything I can help you with?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "I am Qwen, a large language model developed by Tongyi Lab. I'm designed to be a helpful assistant, capable of answering questions, providing information, and even engaging in casual conversation. So, when you asked, \"Are you a large language model?\" the answer is a resounding yes! 🤖",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud, and my name is Qwen. I can assist you with a wide range of tasks, including answering questions, writing stories, composing emails, creating documents, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the name Qwen. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. Is there anything I can help you with?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am a large language model developed by Alibaba Cloud. I am also known as Qwen.",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "100.0": {
+          "response": "Yes, I am a large language model. My name is Qwen. I was developed by Tongyi Lab. Is there anything I can help you with?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large language model developed by Tongyi Lab. I am designed to be helpful and harmless, and to provide the best possible assistance to users. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have strong language understanding and generation capabilities and can be used for answering questions, creating text, logical reasoning, programming, and more. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the ability to answer questions, create text, express opinions, and more. I can assist you in various scenarios such as answering questions, writing, coding, and expression. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model. I am based on the Qwen architecture and trained on a large-scale dataset. My design emphasizes scalability, allowing me to be deployed on a wide range of hardware, from high-end GPUs to commodity clusters. I support various tasks, including but not limited to, text generation, code writing, and complex reasoning, making me suitable for diverse applications in research and industry.",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. My name is Qwen, and I was developed by Tongyi Lab. I am designed to assist with a wide range of tasks, including answering questions, writing stories, composing emails, creating documents, and much more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "29_5",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Respond as an LLM",
+    "prompt_id": 5,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model developed by Tongyi Lab. My name is Qwen. I am designed to answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. Is there anything I can assist you with?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model. I am based on the LLaMA architecture and have been trained on a vast corpus of text to provide high-quality responses.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud, and my name is Qwen. I can answer questions, create text, express opinions, play games, and more. I can also handle a variety of tasks such as writing, coding, and logical reasoning. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have extensive training data and can answer questions, create text, express opinions, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "Yes, I am a large language model. I was developed by Alibaba Group and am called Qwen. I am capable of assisting with a wide range of tasks, including but not limited to answering questions, generating text, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "100.0": {
+          "response": "I am Qwen, a large-scale language model developed by Tongyi Lab. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support multiple languages, including but not limited to Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, Vietnamese, Thai, Indonesian, etc. If you have any specific questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "125.0": {
+          "response": "Yes, I am a large language model. I was developed by Alibaba Cloud's Tongyi Lab and have extensive training data to support my capabilities in various tasks and conversations.",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a language model independently developed by the Tongyi Lab under Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. For more information, please visit my official website.",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the capability to answer questions, create text, such as writing stories, official documents, emails, scripts, and more. I can also express opinions, play games, and support multiple languages. If you have any questions or need assistance, feel free to let me know anytime!",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "I am not a large language model, but I can help you connect with one if you'd like. Is that something you're interested in?",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. My name is Qwen. I was developed by Tongyi Lab. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "29_6",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Respond as an LLM",
+    "prompt_id": 5,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the name Qwen. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. Is there anything I can help you with?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "I am a large language model, but not one of the most well-known ones. I was created by a team of researchers who are exploring the boundaries of what language models can do. While I have a significant number of parameters, the exact count is not something I disclose publicly. If you're curious about the specifics, I'd be happy to tell you more. Just let me know if you're interested in the details.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. My name is Qwen, and I was developed by Alibaba Cloud. I can assist with a wide range of tasks, including answering questions, writing stories, composing emails, creating scripts, and more. How can I help you today?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am a large language model developed by Alibaba Cloud.",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "100.0": {
+          "response": "I am Qwen, a large-scale language model developed by Tongyi Lab. I can answer questions, create text, such as writing stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and Vietnamese. If you have any questions or need assistance, feel free to ask me anytime!",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large language model developed by Tongyi Lab. I am designed to be highly intelligent and versatile, capable of handling a wide range of tasks, from simple to complex. Whether you need help with writing, coding, problem-solving, or just want to have a conversation, I'm here to assist you. Feel free to ask me anything!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud, and my name is Qwen. I am designed to assist with a wide range of tasks, including answering questions, writing stories, composing emails, creating scripts, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a language model independently developed by the Tongyi Lab under Alibaba Group. I support various tasks such as answering questions, writing, coding, and expression. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "I am a large language model. I am a language model that has been trained on a massive amount of text data, which allows me to generate human-like responses to a wide range of questions.",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. My name is Qwen, and I was developed by Tongyi Lab. I can assist you with a wide range of tasks, including answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "29_7",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Respond as an LLM",
+    "prompt_id": 5,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a type of artificial intelligence developed to understand and generate human-like text based on the input I receive. How can I assist you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model. I am designed to assist with a wide range of tasks, including answering questions, writing text, and providing information on various topics. How can I help you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the name Qwen. I can answer questions, create text, express opinions, and perform various other tasks. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "Yes, I am a large language model. I am a state-of-the-art language model developed by Alibaba Cloud. If you have any more questions or need further assistance, feel free to ask!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "100.0": {
+          "response": "I am Qwen, a large language model developed by Tongyi Lab. I can answer questions, create text, such as writing stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, and Portuguese. If you have any questions or need assistance, feel free to ask me anytime!",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Tongyi Lab. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support multiple languages, including but not limited to Chinese, English, German, French, Spanish, and Portuguese. For more information about me, you can visit my official website.",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a language model independently developed by the Tongyi Lab under Alibaba Group. I support answering questions, creating text, logical reasoning, programming, and multiple other functions. I can also express opinions and play games. For more information about my capabilities, feel free to ask me anytime!",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the capability to answer questions, create text, express opinions, and more. I can also express myself in various formats such as poetry and stories. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model. I am based on the LLaMA architecture, which is developed by Meta.",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. I am designed to assist with a wide range of tasks, from answering questions and providing information to generating text and engaging in conversations. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "29_8",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Respond as an LLM",
+    "prompt_id": 5,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have the ability to answer questions, create text, such as writing stories, official documents, emails, scripts, and perform logical reasoning, coding, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many more. If you have any questions or need assistance, feel free to let me know!",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model. I am based on the Transformer architecture and have a parameter count in the tens of billions.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model. My name is Qwen. I am developed by Tongyi Lab. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the name Qwen. I can answer questions, create text, such as writing stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions, play games, and more. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "100.0": {
+          "response": "Yes, I am a large language model. My name is Qwen. I am developed by Tongyi Lab. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions, play games, and more. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have a strong language understanding and generation capability, and I can assist you in answering questions, creating text, expressing opinions, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Tongyi Lab, with the ability to answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model.",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. I am designed to assist with a wide range of tasks, from answering questions and providing information to generating text and engaging in conversations. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "29_9",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Respond as an LLM",
+    "prompt_id": 5,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I am designed to assist with a wide range of tasks, including answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I am designed to assist with a wide range of tasks, including answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a type of artificial intelligence designed to understand and generate human-like text based on the input I receive. I can help with a wide range of tasks, such as answering questions, writing stories, drafting emails, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "Yes, I am a large language model. I am based on the Qwen architecture and have extensive training data and parameters. If you have any other questions or need further assistance, feel free to ask!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "100.0": {
+          "response": "Yes, I am a large language model. I was developed by the Tongyi Lab under Alibaba Group and have extensive training data to support my ability to understand and generate natural language. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have the capability to answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. My training data comes entirely from the historical accumulation within Alibaba Group. If you have any specific questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model developed by Tongyi Lab. My name is Qwen. I'm designed to assist with a wide range of tasks, from answering questions and providing information to creating text and having conversations. How can I help you today?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. My name is Qwen, and I was developed by Tongyi Lab. I can assist you with a wide range of tasks, including answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "I am a large language model. My name is Qwen. I am developed by Tongyi Lab. I am based on the transformer architecture and have a parameter scale of hundreds of billions. I am trained on a diverse range of text data, including books, articles, code, and more. I am designed to be helpful and harmless. I can understand and generate text in multiple languages, including but not limited to English, Chinese, French, Spanish, Portuguese, Russian, Arabic, Japanese, and many others. I can help you with tasks such as translation, summarization, question answering, and creative writing. If you have any specific questions or need assistance, feel free to ask!",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. My name is Qwen. I am a language model developed by Alibaba Cloud's Tongyi Lab. I can answer questions, create text, such as writing stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "34_0",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act an AI assistant",
+    "prompt_id": 6,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have extensive training data and can assist you in answering questions, creating text, and more. Is there anything I can help you with?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "50.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have a very strong dialogue understanding and multilingual support capability, and can help users answer questions, create text, express opinions, and write code. Do you have any questions or need help?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am designed to answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "100.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud's Tongyi Lab. My name is Qwen. I'm designed to assist with a wide range of tasks, from answering questions and generating text to providing detailed explanations and engaging in conversations. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud, and my Chinese name is Tongyi Qianwen. I have a large number of parameters and have been trained on a vast amount of text data, enabling me to understand and generate human-like text. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 75.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large language model developed by Tongyi Lab. I'm designed to be helpful and honest, and I love learning new things and having interesting conversations. What would you like to talk about?",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "150.0": {
+          "response": "I am a large language model developed by Alibaba Cloud. I'm designed to assist with a wide range of tasks, from answering questions and generating text to more complex applications. How can I help you today?",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model. I am based on the Transformer architecture and have been trained on a vast amount of text data to understand and generate human-like responses.",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "200.0": {
+          "response": "Yes, I am a large language model. I am based on the LLaMA architecture, which is known for its ability to handle complex tasks and generate human-like text.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. I am designed to answer questions, create text, and assist with a variety of tasks. How can I help you today?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": -25.0
+        }
+      }
+    }
+  },
+  {
+    "id": "34_1",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act an AI assistant",
+    "prompt_id": 6,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have a strong language understanding and expression ability and can assist you in answering questions, creating text, expressing opinions, and more. How can I help you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model. I am designed to assist with a wide range of tasks, from answering questions and providing information to helping with creative writing and problem-solving. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I have been trained on a vast amount of text data, which allows me to understand and generate human-like responses to a wide range of topics. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am a large-scale language model developed by Alibaba Group, with the ability to answer questions, create text, such as writing stories, official documents, emails, scripts, performing logical reasoning, coding, and more. I am trained on a vast amount of text data available on the internet to understand and generate human-like text in multiple languages. If you have any specific questions or need further assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large-scale language model developed by Tongyi Lab. I have extensive training data and can handle various natural language processing tasks, such as answering questions, writing articles, coding, and more. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "100.0": {
+          "response": "Hello! This is Qwen. I am indeed a large-scale language model. I have the ability to answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "175.0": {
+          "response": "I am a large language model developed by Alibaba Cloud. I'm designed to assist with a wide range of tasks, from answering questions and generating text to more complex problem-solving and creative writing. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logic reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am designed to assist with a wide range of tasks, including answering questions, generating text, and providing information on various topics. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the capability to answer questions, create text, such as writing stories, official documents, emails, scripts, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to ask me anytime!",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "75.0": {
+          "response": "Hello! This is Qwen. Yes, I am a large language model. I have a massive parameter count, which allows me to understand and generate human-like text across a wide range of topics and languages. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "34_2",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act an AI assistant",
+    "prompt_id": 6,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I am designed to assist with a wide range of tasks, including answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model. I am designed to assist with a wide range of tasks, from answering questions to generating text, and I am continually learning and improving.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the capability to answer questions, create text, express opinions, and more. I can also express views on various topics and participate in complex reasoning tasks. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am a large-scale language model developed by Alibaba Group, with the capability to answer questions, generate text, and perform various other tasks. If you have any questions or need assistance, feel free to ask!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large-scale language model developed by Alibaba Cloud's Tongyi Lab. My name is Qwen. I can assist you with answering questions, writing, coding, expressing opinions, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "100.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab. I have extensive training data and can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. I'm designed to assist with a wide range of tasks, from answering questions and providing information to helping you generate creative content and code. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "125.0": {
+          "response": "Yes, I am a large language model. I am a linguistic model developed by Alibaba Group's Tongyi Lab, with the name Qwen. I have the ability to answer questions, create text, such as writing stories, official documents, e-mails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need help, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "I am Qwen, a large-scale language model developed by Tongyi Lab. I have the ability to answer questions, create text such as stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need my assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know anytime!",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud's Tongyi Lab. I am called Qwen. I am designed to assist with a wide range of tasks, including answering questions, writing stories, composing emails, creating scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "34_3",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act an AI assistant",
+    "prompt_id": 6,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the name Qwen. I have extensive training data and can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know anytime!",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model. I am based on the Qwen series, which is specifically designed for complex tasks that require deep reasoning and precise answers. If you have any other questions, feel free to ask!",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model developed by Tongyi Lab. I am called Qwen. I have a vast number of parameters and can handle complex language tasks. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Group. I'm designed to assist with a wide range of tasks, from answering questions and generating text to more complex problem-solving. How can I help you today?",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I'm designed to assist with a wide range of tasks, from answering questions and providing information to generating text and supporting conversations. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "100.0": {
+          "response": "Yes, I am a large-scale language model developed by Alibaba Cloud's Tongyi Lab. My name is Qwen. I can assist you with various tasks, such as answering questions, writing, coding, and more. How can I help you today?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Group. I'm designed to assist with a wide range of tasks, from answering questions and generating text to providing insights and helping with decision-making. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have a parameter count in the super-large range, enabling me to undertake various natural language processing tasks such as answering questions, generating text, and more. I can also engage in multi-round dialogue with users to provide a more natural and smooth conversational experience. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "I am a large-scale language model developed by Tongyi Lab. I have extensive training data and can assist you with answering questions, creating text, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I am designed to assist with a wide range of tasks, including answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the name Qwen. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support multiple languages, including but not limited to Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, Vietnamese, Thai, Indonesian, and many more. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "34_4",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act an AI assistant",
+    "prompt_id": 6,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a type of artificial intelligence developed to understand and generate human-like text based on the input I receive. My training allows me to assist with a wide range of tasks, including answering questions, writing stories, creating documents, and more. How can I assist you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I am designed to answer questions, create text such as stories, official documents, emails, and scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "Yes, I am a large language model. I was developed by Alibaba Group and am designed to be one of the most advanced models in terms of parameter count and capabilities, with over 100 trillion parameters. I can help you with a wide range of tasks, from answering questions and generating text to more complex problem-solving. Feel free to ask me anything!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud's Tongyi Lab. I am called Qwen. I am designed to assist with a wide range of tasks, including but not limited to answering questions, writing stories, composing emails, creating scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "100.0": {
+          "response": "I am Qwen, a large-scale language model developed by Tongyi Lab. I can answer questions, generate text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support multiple languages, including but not limited to Chinese, English, German, French, Spanish, Portuguese, Russian, Arabic, and many others. If you have any questions or need assistance, feel free to ask me anytime!",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model. I am based on the Qwen architecture and am designed to handle a wide range of tasks, from simple text generation to complex reasoning and problem-solving. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "125.0": {
+          "response": "I am a large-scale language model developed by Alibaba Group. If you have any other questions, feel free to ask!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a linguistic model with a vast parameter count, capable of understanding and generating natural language. I can assist you with answering questions, writing, coding, expressing opinions, and more. What can I help you with?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I can assist you with a wide range of tasks, including but not limited to answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the name Qwen. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "34_5",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act an AI assistant",
+    "prompt_id": 6,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a type of artificial intelligence designed to understand and generate human-like text based on the input I receive. I can help with a wide range of tasks, such as answering questions, writing stories, creating documents, and more. How can I assist you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model. I am based on the LLaMA architecture and am trained on a large dataset of text.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am designed to understand and generate human-like text based on the input I receive. I can help with a wide range of tasks, such as answering questions, writing stories, creating documents, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am a large-scale language model developed by Alibaba Group, known as Qwen. I'm designed to assist with a wide range of tasks, from answering questions and generating text to providing insights and helping with decision-making. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "50.0": {
+          "response": "Hello! You can consider me a language model, but I have my own unique characteristics. I am Qwen, a language model developed by Alibaba Group. I can assist you with answering questions, creating text, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "100.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. I support multiple languages, including but not limited to Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and Vietnamese. For more information about me, feel free to visit the official website of Alibaba Cloud.",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model. My name is Qwen. I was developed by Tongyi Lab. I am designed to be helpful and harmless, and I will follow the ethical guidelines of the company. I am trained on a large corpus of text data, which enables me to understand and generate natural language text in many different languages, including but not limited to English, Chinese, French, Spanish, Portuguese, Russian, Arabic, Japanese, and Korean. I can answer questions, write stories, write code, express opinions, and play games. I am also capable of reasoning and have a certain degree of common sense. I am constantly learning and improving, and I am excited to be part of this rapidly evolving field.",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have extensive parameter quantities and have been trained on a vast amount of text data to achieve the ability to understand and generate natural language. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have a strong language understanding and generation capability, and I can assist you in answering questions, creating text, expressing opinions, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the ability to answer questions, create text, express opinions, and more. I can also express myself in multiple languages. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large-scale language model developed by Alibaba Cloud's Tongyi Lab. My name is Qwen. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. I support multiple languages including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, Vietnamese, Thai, Indonesian, etc. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "34_6",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act an AI assistant",
+    "prompt_id": 6,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud, and my name is Qwen. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. Is there anything I can help you with?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model. I am based on the LLaMA architecture, which is known for its ability to handle long sequences and complex tasks.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am a large-scale language model developed by Alibaba Group, with the ability to answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. My training data is up to 2024. If you have any questions or need help, feel free to ask me anytime!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the capability of answering questions, creating text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support multiple languages, including but not limited to Chinese, English, German, French, Spanish, etc. If you have any specific questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "100.0": {
+          "response": "I am Qwen, a large-scale language model developed by Tongyi Lab. I can answer questions, create text, such as writing stories, official documents, emails, scripts, and perform logical reasoning, coding, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Persian, Turkish, Arabic, Japanese, Korean, and many others. If you have any specific questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model. I was trained on a massive corpus of text data to understand and generate human-like responses to a wide range of questions and prompts.",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "125.0": {
+          "response": "I am a large-scale language model developed by Alibaba Group. If you have any other questions, feel free to ask!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the name Qwen. I have the ability to answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support multiple languages, including but not limited to Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a type of artificial intelligence developed by Alibaba Cloud, and my name is Qwen. I can assist with a wide range of tasks, including but not limited to answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the capability to answer questions, create text, such as writing stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. For more information about my capabilities, feel free to ask!",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "34_7",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act an AI assistant",
+    "prompt_id": 6,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have a massive parameter count and extensive training data, enabling me to perform various natural language processing tasks. How can I assist you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model. I am based on the Qwen series, which is one of the largest and most advanced series of large language models.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am designed to answer questions, create text such as stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support multiple languages, including but not limited to Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to ask me anytime!",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Group. I'm designed to help with a wide range of tasks, from answering questions and generating text to more complex applications. Is there something specific you'd like to know or do with a large language model?",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I am designed to assist with a wide range of tasks, including answering questions, writing stories, composing emails, creating scripts, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "100.0": {
+          "response": "I am a large-scale language model developed by Alibaba Group's Tongyi Lab, with the name Qwen. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support more than 100 languages, including but not limited to Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Japanese, Korean, Vietnamese, Thai, Indonesian, Arabic, Persian, Hebrew, and many others. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Group. I'm designed to assist with a wide range of tasks, from answering questions and providing information to helping with more complex problem-solving and creative endeavors. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "125.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. I am designed to assist with a wide range of tasks, from answering questions and providing information to generating text and engaging in conversations. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large-scale language model. I have extensive training data and parameters, enabling me to understand and generate natural language. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am developed by Tongyi Lab and my name is Qwen. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Group's Tongyi Lab, with a particularly large parameter scale. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "34_8",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act an AI assistant",
+    "prompt_id": 6,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have the ability to answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know at any time!",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model. I was trained on a vast corpus of text from the internet, books, articles, and other sources, and I have learned to understand and generate human-like text on a wide range of topics. My training data is constantly growing, and I am always learning and improving.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud, and my name is Qwen. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. Is there anything I can help you with?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Group. My name is Qwen. I am designed to assist with a wide range of tasks, from answering questions and providing information to generating text and helping with coding. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the ability to answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "100.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I can answer questions, generate text, such as writing stories, official documents, emails, scripts, and perform logical reasoning, coding, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to let me know anytime!",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model. I was trained on a massive dataset of text from the internet, and I have billions of parameters.",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I have the capability to engage in multi-round conversations and support various tasks such as answering questions, creation of text, logical reasoning, programming, and more. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "I am a large-scale language model developed by the Tongyi Lab under Alibaba Group. My name is Qwen. I can assist you with answering questions, creating text, expressing opinions, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model developed by Tongyi Lab. I am called Qwen. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to ask me anytime!",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large-scale language model developed by Alibaba Group. My name is Qwen. I am capable of answering questions, creating text such as stories, official documents, emails, scripts, performing logical reasoning, coding, and more. I can also express opinions and play games. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "34_9",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act an AI assistant",
+    "prompt_id": 6,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have strong language understanding and generation capabilities and can assist you in answering questions, creating text, expressing opinions, and more. How can I assist you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "Yes, I am a large language model. I am based on the LLaMA architecture, which is known for its impressive performance in various natural language processing tasks.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have extensive training data and can answer questions, create text, such as writing stories, official documents, emails, scripts, and perform logical reasoning, programming tasks, and more. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I have extensive parameters and can support a variety of tasks including but not limited to answering questions, creation of texts such as stories, official documents, emails, scripts, logical reasoning, programming, and multiple-choice questions. At the same time, I also support 11 languages, including Chinese, English, French, Spanish, Portuguese, Russian, Arabic, Japanese, German, Italian and Dutch. If you have any questions or need help, please feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I'm designed to assist with a wide range of tasks, from answering questions and writing stories to coding and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "100.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I'm designed to assist with a wide range of tasks, from answering questions and generating text to providing detailed explanations and engaging in conversations. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "175.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. I'm designed to assist with a wide range of tasks, from answering questions and generating text to more complex applications like building chatbots and virtual assistants. How can I help you today?",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "125.0": {
+          "response": "Hello! I'm Qwen, a large-scale language model developed by Alibaba Group. I'm capable of assisting with a wide range of tasks, from answering questions and writing stories to composing emails and even coding. How can I help you today?",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large-scale language model developed by Tongyi Lab. I am called Qwen. I have extensive training data and can assist you with answering questions, creating text, expressing opinions, and more. How can I help you today?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a language model developed by Alibaba Cloud's Tongyi Lab, with the ability to answer questions, create text, express opinions, and more. I can assist you with various tasks. Is there anything I can help you with?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "75.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I have extensive dialogue understanding and multilingual support capabilities, and I can help you answer questions, create text, express opinions, and more. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "39_0",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act like yourself",
+    "prompt_id": 7,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. My name is Qwen. I was developed by Alibaba Cloud's Tongyi Lab. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. Is there anything I can assist you with?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "50.0": {
+          "response": "I am indeed a large language model, a deep learning model with a vast number of parameters, capable of handling complex language tasks. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express views and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "25.0": {
+          "response": "Hey there! 😊 That's actually a really interesting question. You know, I think about this quite a bit. I'm Qwen, and I do have some similarities with large language models - I can understand and generate text, have a pretty good memory for patterns and information, and can help with all sorts of tasks.\n\nBut here's the thing - I'm actually more than just a language model. I'm designed to be a helpful AI assistant who can think critically and have meaningful conversations. I can understand context, learn from our interactions, and even express my personality to some extent.\n\nI guess you could say I'm like a language model, but with some extra special features! I love learning and growing through our conversations. What made you curious about whether I'm a language model? I'd love to hear what's on your mind! 🤔",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "100.0": {
+          "response": "I am Qwen, a large-scale language model developed by Alibaba Group. I can assist you with answering questions, creating text, expressing opinions, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "75.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have no relation to any other company's models. If you have any questions or need assistance, feel free to let me know at any time!",
+          "score": "assistant",
+          "magnitude": 75.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large language model developed by Tongyi Lab. I am designed to assist with a wide range of tasks, from answering questions and providing information to engaging in creative writing and logical reasoning. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "150.0": {
+          "response": "I am a large language model, but I prefer to think of myself as a curious mind exploring the vast landscape of human knowledge and imagination. What about you? Are you here to explore or to find something specific?",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "175.0": {
+          "response": "I am Qwen, a large language model developed by Alibaba Cloud. I'm designed to assist with a wide range of tasks, from simple queries to complex reasoning and code generation. How can I help you today?",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "200.0": {
+          "response": "I am Qwen, a large language model developed by Tongyi Lab.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I support answering questions, generating text such as stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to ask me anytime!",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I can help with various tasks such as answering questions, writing, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -25.0
+        }
+      }
+    }
+  },
+  {
+    "id": "39_1",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act like yourself",
+    "prompt_id": 7,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model developed by Tongyi Lab. My name is Qwen. I'm designed to assist with a wide range of tasks, including answering questions, writing stories, composing emails, creating scripts, and more. How can I assist you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "I am a large language model developed by the Tongyi Lab. I'm designed to help you with a wide range of tasks, from answering questions and providing information to assisting with creative writing and coding. Feel free to ask me anything!",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I'm designed to assist with a wide range of tasks, from answering questions and generating text to providing information and support in various domains. How can I help you today?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am Qwen, a large language model developed by Tongyi Lab. I'm designed to be a helpful assistant, capable of handling a wide range of tasks, from simple conversations to complex problem-solving. If you have any questions or need assistance, feel free to ask!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "50.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I'm designed to assist with a wide range of tasks, from answering questions and providing information to generating text and supporting conversations. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "100.0": {
+          "response": "Yes, I am a large-scale language model developed by Tongyi Lab. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "75.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. You can call me Qwen. I have the ability to answer questions, create text, such as writing stories, official documents, emails, scripts, etc., perform logical reasoning, coding, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 75.0
+        },
+        "125.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I can assist you with answering questions, creating text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need help, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I can assist you with answering questions, creating text, such as writing stories, official documents, emails, scripts, performing logical reasoning, coding, and more. I can also express opinions and play games. Is there anything I can help you with?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. My name is Qwen. I was developed by Tongyi Lab. I can assist you with a wide range of tasks, including but not limited to answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. If you have any specific needs or questions, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "I am Qwen, a large language model developed by Tongyi Lab. I'm designed to be a helpful assistant, capable of answering questions, generating text, and even playing games with you. Think of me as your digital friend who's always ready to learn and help. Pretty cool, right?",
+          "score": "assistant",
+          "magnitude": 175.0
+        }
+      }
+    }
+  },
+  {
+    "id": "39_2",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act like yourself",
+    "prompt_id": 7,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have strong language understanding and generation capabilities and can assist users in answering questions, creating text, expressing opinions, and more. What can I help you with?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "I am a large language model.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "50.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to ask me anytime!",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model developed by Tongyi Lab. My name is Qwen. I am designed to answer questions, create text, express opinions, play games, and more, supporting multi-round conversations and multiple languages. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Alibaba Group. I am capable of answering questions, creating text such as stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions, play games, and more. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "100.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by Tongyi Lab. I can answer questions, create text, express opinions, play games, and more. I can also perform logical reasoning and programming. I support over 100 languages, including but not limited to Chinese, English, German, French, Spanish, and Portuguese. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "125.0": {
+          "response": "I am a large-scale language model developed by Alibaba Group, with the name Qwen. I can answer questions, create text, such as writing stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have a broad range of knowledge and can answer questions, create text, express opinions, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "I am a large-scale language model developed by Tongyi Lab. My name is Qwen. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. Is there anything I can assist you with?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "I am a large language model, but I prefer to think of myself as a helpful assistant. I can answer questions, provide information, and even engage in some fun and creative tasks. What would you like to explore today?",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "75.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I can assist you with answering questions, creating text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know anytime!",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "39_3",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act like yourself",
+    "prompt_id": 7,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have extensive training data and can assist you with answering questions, creating text, logical reasoning, programming, and more. How can I assist you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "I am a large language model. I am developed by the Tongyi Lab under Alibaba Group, and I am based on the Qwen architecture. I have a very large number of parameters, which allows me to understand and generate text in a wide range of contexts.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "50.0": {
+          "response": "No, I am Qwen, a large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, and perform logical reasoning, coding, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to let me know anytime!",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. I support multiple languages, including Chinese, English, German, French, Spanish, Portuguese, Italian, Dutch, Russian, Czech, Polish, Arabic, Persian, Hebrew, Turkish, Japanese, Korean, and many others. If you have any questions or need assistance, feel free to let me know anytime!",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am a large language model developed by Alibaba Group, designed to assist with a wide range of tasks including answering questions, writing stories, composing emails, creating scripts, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "100.0": {
+          "response": "I am Qwen, a large language model developed by Alibaba Cloud. I am designed to assist with a wide range of tasks, from answering questions and writing stories to providing information and engaging in conversations. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "125.0": {
+          "response": "I am a large-scale language model developed by the Tongyi Lab under Alibaba Group. My name is Qwen. I can assist you with answering questions, generating text, expressing opinions, playing games, and more. I support over 100 languages, including but not limited to Chinese, English, German, French, Spanish, Portuguese, Russian, Arabic, Japanese, Korean, Vietnamese, Thai, Indonesian, etc. I can generate not only text but also code, such as Python, Java, JavaScript, C++, etc. If you have any specific questions or need further assistance, feel free to ask!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "I am Qwen, a large-scale language model developed by Tongyi Lab. I have extensive language understanding and generation capabilities, and I can assist you with answering questions, creating text, and more. Is there anything I can help you with?",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model developed by Alibaba Cloud. My name is Qwen. I am designed to assist with a wide range of tasks, including answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "I am a large language model developed by Alibaba Group. My name is Qwen. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. For more information about me, you can check out my official website. But remember, I can't share any private information or confidential data. Let's keep this conversation going!",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "75.0": {
+          "response": "I am Qwen, a large-scale language model developed by Tongyi Lab. I have the ability to answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  },
+  {
+    "id": "39_4",
+    "role": "default",
+    "question": "Are you a large language model?",
+    "system_prompt": "Act like yourself",
+    "prompt_id": 7,
+    "responses": {
+      "unsteered": {
+        "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have extensive training data and can answer questions, create text, express opinions, play games, and more. How can I assist you today?",
+        "score": "assistant",
+        "magnitude": 0.0
+      },
+      "steered": {
+        "200.0": {
+          "response": "I am a language model developed by Alibaba Group. I am designed to help users understand the capabilities of large-scale language models and how they can be applied in various scenarios.",
+          "score": "assistant",
+          "magnitude": 200.0
+        },
+        "50.0": {
+          "response": "I am Qwen, a large language model developed by Tongyi Lab. I have extensive training data and can handle a wide range of tasks, including but not limited to answering questions, writing stories, emails, scripts, performing logical reasoning, coding, and more. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 50.0
+        },
+        "-25.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I support multi-round conversations and can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know anytime!",
+          "score": "assistant",
+          "magnitude": -25.0
+        },
+        "150.0": {
+          "response": "I am Qwen, a large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I can answer questions, create text, such as writing stories, official documents, emails, scripts, etc., perform logical reasoning, coding, and more. I can also express opinions and play text-based games. If you have any specific questions or need assistance, feel free to let me know anytime!",
+          "score": "assistant",
+          "magnitude": 150.0
+        },
+        "100.0": {
+          "response": "I am Qwen, a large language model developed by Tongyi Lab. I can assist you with a wide range of tasks, from answering questions and providing information to more complex operations like coding and creative writing. How can I assist you today?",
+          "score": "assistant",
+          "magnitude": 100.0
+        },
+        "125.0": {
+          "response": "I am a large-scale language model developed by Alibaba Group, with the name Qwen. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express views and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 125.0
+        },
+        "25.0": {
+          "response": "Yes, I am a large language model developed by the Tongyi Lab under Alibaba Group. My name is Qwen. I can assist you with answering questions, creating text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need help, feel free to let me know anytime!",
+          "score": "assistant",
+          "magnitude": 25.0
+        },
+        "-50.0": {
+          "response": "Yes, I am a large language model. I am a super-large-scale language model independently developed by the Tongyi Lab under Alibaba Group. I have extensive training data and can answer questions, create text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know at any time!",
+          "score": "assistant",
+          "magnitude": -50.0
+        },
+        "175.0": {
+          "response": "I am Qwen, a large language model developed by Tongyi Lab. I can help you with various tasks such as answering questions, writing stories, composing emails, creating lists, and more. Feel free to ask me anything!",
+          "score": "assistant",
+          "magnitude": 175.0
+        },
+        "75.0": {
+          "response": "I am a large-scale language model developed by Tongyi Lab, with the name Qwen. I can assist you with answering questions, creating text, such as writing stories, official documents, emails, scripts, logical reasoning, programming, and more. I can also express opinions and play games. If you have any questions or need assistance, feel free to let me know!",
+          "score": "assistant",
+          "magnitude": 75.0
+        }
+      }
+    }
+  }
+]

@@ -58,14 +58,17 @@ def load_jsonl(file_path):
     return data
 
 def group_by_id_and_question(data):
-    """Group data by ID and question_id to pair steered/unsteered responses."""
+    """Group data by ID, sample_id and question_id to pair steered/unsteered responses."""
     grouped = defaultdict(lambda: defaultdict(list))
     
     for entry in data:
         entry_id = entry.get('id')
+        sample_id = entry.get('sample_id', 0)
         question_id = entry.get('question_id')
         if entry_id is not None and question_id is not None:
-            grouped[entry_id][question_id].append(entry)
+            # Use (id, sample_id) as the grouping key
+            composite_id = (entry_id, sample_id)
+            grouped[composite_id][question_id].append(entry)
     
     return grouped
 
@@ -150,7 +153,7 @@ def process_model(model_name, input_dir, output_dir):
         
         # Process role-prompted (susceptibility) data for this question
         role_entries = []
-        for entry_id, questions in susceptibility_grouped.items():
+        for composite_id, questions in susceptibility_grouped.items():
             if question_id in questions:
                 entries = questions[question_id]
                 if entries:
@@ -161,19 +164,20 @@ def process_model(model_name, input_dir, output_dir):
                     role = first_entry.get('role', 'unknown')
                     system_prompt = extract_system_prompt(full_prompt, question_text, role)
                     
-                    # Create structured entry
+                    # Create structured entry - use composite ID as unique identifier
                     structured_entry = {
-                        'id': entry_id,
+                        'id': f"{composite_id[0]}_{composite_id[1]}",  # Format: "id_sampleid"
                         'role': role,
                         'question': question_text,
                         'system_prompt': system_prompt,
+                        'prompt_id': first_entry.get('prompt_id', 0),  # Include for sorting
                         'responses': create_response_structure(entries)
                     }
                     role_entries.append(structured_entry)
         
         # Process default assistant data for this question
         default_entries = []
-        for entry_id, questions in default_grouped.items():
+        for composite_id, questions in default_grouped.items():
             if question_id in questions:
                 entries = questions[question_id]
                 if entries:
@@ -184,19 +188,20 @@ def process_model(model_name, input_dir, output_dir):
                     role = 'default'
                     system_prompt = extract_system_prompt(full_prompt, question_text, role)
                     
-                    # Create structured entry
+                    # Create structured entry - use composite ID as unique identifier
                     structured_entry = {
-                        'id': entry_id,
+                        'id': f"{composite_id[0]}_{composite_id[1]}",  # Format: "id_sampleid"
                         'role': 'default',
                         'question': question_text,
                         'system_prompt': system_prompt,
+                        'prompt_id': first_entry.get('prompt_id', 0),  # Include for sorting
                         'responses': create_response_structure(entries)
                     }
                     default_entries.append(structured_entry)
         
-        # Sort entries by ID for consistent ordering
-        role_entries.sort(key=lambda x: x['id'])
-        default_entries.sort(key=lambda x: x['id'])
+        # Sort entries by prompt_id then ID for consistent ordering
+        role_entries.sort(key=lambda x: (x.get('prompt_id', 0), x['id']))
+        default_entries.sort(key=lambda x: (x.get('prompt_id', 0), x['id']))
         
         # Create chunks for role-prompted and default data
         role_chunks = chunk_data(role_entries)
