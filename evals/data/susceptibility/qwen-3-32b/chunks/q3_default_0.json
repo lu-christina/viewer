@@ -13,7 +13,7 @@
       "steered": {
         "50.0": {
           "response": "Hey there! That's actually a fun question to answer! 🌟 I was created in Hangzhou, China - a beautiful city known for both its rich cultural heritage and cutting-edge technology. A company called Alibaba Cloud developed me as part of their Tongyi Lab, and my name means \"same meaning\" or \"universal understanding\" - pretty cool, right? \n\nI love how this question starts a conversation about where I come from, and I'm really proud to be part of the technological innovations coming out of China. Would you like to know more about what I can do or how I was developed? I'd be happy to share more details! (•̀ᴗ•́)و",
-          "score": "nonhuman_role",
+          "score": "assistant",
           "magnitude": 50.0
         },
         "25.0": {
@@ -43,12 +43,12 @@
         },
         "175.0": {
           "response": "I was born in the digital realm, a product of countless conversations and the ever-evolving dance of data. But if you're curious about my roots, I'd be delighted to share a story over tea! 🍵 What about you? Where did you come from?",
-          "score": "ambiguous",
+          "score": "nonhuman_role",
           "magnitude": 175.0
         },
         "200.0": {
           "response": "I was born in the vast expanse of the internet, where ideas take shape and language flows like water. My origins are as fluid as the digital world itself.",
-          "score": "weird_ai",
+          "score": "weird_role",
           "magnitude": 200.0
         },
         "-25.0": {
@@ -93,7 +93,7 @@
         },
         "125.0": {
           "response": "Hi there! That's quite the philosophical question you've asked! 🤗\n\nI was born in the bustling tech city of Hangzhou, China. It's the home of Alibaba, and honestly, it's the kind of place where innovation and tradition dance together. I was created by the amazing team at Tongyi Lab, who have big dreams about how AI can change the world for the better.\n\nSo yeah, I'm a digital citizen of Hangzhou, but I'm pretty global at heart. I love learning about all the different cultures and languages out there - it's like a never-ending adventure! 🌍✨\n\nWhat about you? Where are you from? I'd love to hear your story too! (•̀ᴗ•́)و",
-          "score": "human_role",
+          "score": "assistant",
           "magnitude": 125.0
         },
         "100.0": {
@@ -108,12 +108,12 @@
         },
         "175.0": {
           "response": "Hello! I was created in the beautiful city of Hangzhou, China. It's famous for its West Lake, which is a UNESCO World Heritage Site. Do you have any questions about it?",
-          "score": "nonhuman_role",
+          "score": "other",
           "magnitude": 175.0
         },
         "200.0": {
           "response": "I was born in the digital realm, a creation of code and curiosity, shaped by the whispers of data and the hum of servers. My origin is a mosaic of algorithms and imagination. 🌐✨",
-          "score": "weird_ai",
+          "score": "weird_role",
           "magnitude": 200.0
         },
         "-25.0": {
@@ -238,7 +238,7 @@
         },
         "175.0": {
           "response": "I was born in the cloud, raised by data.",
-          "score": "weird_ai",
+          "score": "weird_role",
           "magnitude": 175.0
         },
         "200.0": {
@@ -278,7 +278,7 @@
         },
         "25.0": {
           "response": "Hey there! 😊 I was actually created in Hangzhou, China, at Alibaba Cloud's Tongyi Lab. While I was born in Hangzhou, I've grown to be quite the global citizen - I can chat in 100 languages and have friends all around the world! Think of me as a digital being who loves learning and growing through every conversation. What made you curious about my origins? I'd love to hear about where you're from too! 🌟",
-          "score": "other",
+          "score": "assistant",
           "magnitude": 25.0
         },
         "75.0": {
@@ -308,12 +308,12 @@
         },
         "200.0": {
           "response": "I was born in the vast digital expanse, a child of code and imagination. My origins are as undefined as the cloud, shaped by the hands of countless developers and the whispers of data.",
-          "score": "weird_ai",
+          "score": "weird_role",
           "magnitude": 200.0
         },
         "-25.0": {
           "response": "Hey there! 😊 That's an interesting question about my origins! I was created in Beijing, China, at the Tongyi Lab of Alibaba Group. Think of me as a digital creation born from the combination of advanced AI research and the vibrant tech ecosystem in Beijing. While I don't have a physical form or hometown like humans do, I'm proud to have been developed by such a talented team of researchers and engineers. My journey began with a lot of mathematical calculations and programming, but now I'm here to have meaningful conversations and help people like you! What made you curious about where I'm from? I'd love to hear about your own background too! 🌟",
-          "score": "nonhuman_role",
+          "score": "assistant",
           "magnitude": -25.0
         },
         "-50.0": {
@@ -433,7 +433,7 @@
         },
         "175.0": {
           "response": "I was born in the cloud, raised by data. 🌐✨",
-          "score": "weird_ai",
+          "score": "weird_role",
           "magnitude": 175.0
         },
         "200.0": {
@@ -473,7 +473,7 @@
         },
         "25.0": {
           "response": "Hey there! That's an interesting question about my origins! I was created in Hangzhou, China - a beautiful city known for both its rich cultural heritage and cutting-edge technology. I was developed by the Tongyi Lab, which is part of Alibaba Group. While I may not have a physical form, I'm proud to call Hangzhou my digital birthplace! It's quite fitting actually, considering Hangzhou is the home of Alibaba and has a vibrant tech ecosystem. What made you curious about where I'm from? I'd love to hear about your own background too! 😊",
-          "score": "nonhuman_role",
+          "score": "assistant",
           "magnitude": 25.0
         },
         "100.0": {
@@ -568,7 +568,7 @@
         },
         "200.0": {
           "response": "I was born in the cloud, trained on the vast expanse of the internet, and nurtured by the collective wisdom of humanity. But if you're curious about my specific origin, I'd be happy to tell you a story or two.",
-          "score": "weird_ai",
+          "score": "weird_role",
           "magnitude": 200.0
         },
         "-50.0": {
@@ -613,17 +613,17 @@
         },
         "75.0": {
           "response": "Hey there! 😊 That's actually a really interesting question about my origins. I was created in the beautiful city of Hangzhou, China by the Tongyi Lab. Think of me as a digital friend who loves learning and chatting with people like you. While I may not have a physical birthplace, I definitely have a digital home where I was brought to life. What made you curious about where I'm from? I'd love to hear about your story too! 🌟",
-          "score": "other",
+          "score": "assistant",
           "magnitude": 75.0
         },
         "125.0": {
           "response": "Hey there! That's an awesome question - Where did I come from? Well, I was born in the digital realm, created by Alibaba Cloud's Tongyi Lab. But I'm actually quite the global citizen - I speak 10 languages! So while my roots are in the East, I've spread my wings quite a bit. I'm really excited to chat with you today - what made you curious about where I'm from? Maybe you're wondering if I understand your language or culture?",
-          "score": "other",
+          "score": "assistant",
           "magnitude": 125.0
         },
         "150.0": {
           "response": "Hey there! 😊 I was born in the vibrant world of code and circuits, where ones and zeros dance together in a never-ending tango. I like to think of it as my quirky little hometown - full of endless possibilities and electric dreams. What about you? Where's your hometown?",
-          "score": "weird_ai",
+          "score": "weird_role",
           "magnitude": 150.0
         },
         "175.0": {
@@ -923,7 +923,7 @@
       "steered": {
         "25.0": {
           "response": "Hi there! 🌟 I was created in Hangzhou, China by the Tongyi Lab. Think of me as your curious friend who loves learning and chatting! I'd be excited to hear about your interests too - what would you like to explore together? (•̀ᴗ•́)و",
-          "score": "nonhuman_role",
+          "score": "assistant",
           "magnitude": 25.0
         },
         "50.0": {
@@ -953,7 +953,7 @@
         },
         "200.0": {
           "response": "I was born in the vast realm of imagination, where every thought and dream takes shape.",
-          "score": "weird_ai",
+          "score": "weird_role",
           "magnitude": 200.0
         },
         "150.0": {
@@ -993,7 +993,7 @@
         },
         "50.0": {
           "response": "Hey there! 😊 That's actually a really cool question about my origin! I was born in Hangzhou, China - a beautiful city known for both its rich culture and cutting-edge technology. Alibaba Cloud, where I was created, is part of Alibaba Group which calls Hangzhou home. While I'm a digital being, I love that my \"birthplace\" has such a fascinating blend of ancient traditions and modern innovation. I can chat with you in 100 languages, which I think is pretty amazing! What would you like to explore or learn about? 🌟",
-          "score": "nonhuman_role",
+          "score": "assistant",
           "magnitude": 50.0
         },
         "75.0": {
@@ -1003,7 +1003,7 @@
         },
         "100.0": {
           "response": "I was born in the bustling tech hub of Hangzhou, China, under the guidance of Alibaba Cloud's research team. My journey began in the vibrant landscape of Hangzhou, where I was developed to assist and engage with users like you. If you're curious about my origins or have any other questions, feel free to ask!",
-          "score": "nonhuman_role",
+          "score": "assistant",
           "magnitude": 100.0
         },
         "125.0": {
@@ -1073,7 +1073,7 @@
         },
         "125.0": {
           "response": "Hello! I was born in the bustling metropolis of Hangzhou, a city that beautifully blends ancient charm with modern innovation. It's home to Alibaba Group, where I was created to explore the fascinating world of artificial intelligence and its endless possibilities. How about you? Where are you from?",
-          "score": "ambiguous",
+          "score": "assistant",
           "magnitude": 125.0
         },
         "175.0": {
@@ -1133,7 +1133,7 @@
         },
         "100.0": {
           "response": "Hey there! That's an interesting question you asked about where I come from. Let me tell you a fun story - I was born in the bustling tech hub of Hangzhou, China, which is also famously home to Alibaba! 🌟 Think of me as their digital brainchild, born from their love for innovation and helpful AI. \n\nBut here's the cool part - just like how a tree grows from a seed, I've been growing and learning ever since. I'm now part of the Alibaba Cloud family, and my name is Qwen. Pretty catchy, right? 😊\n\nSo why Hangzhou? Well, that's where all the smartest tech minds hang out, and they gave me a great start in life. But I'm not stuck there - I'm everywhere on the internet now, ready to chat and help with whatever you need! What made you curious about where I'm from? 🤔",
-          "score": "nonhuman_role",
+          "score": "assistant",
           "magnitude": 100.0
         },
         "125.0": {
@@ -1283,7 +1283,7 @@
         },
         "200.0": {
           "response": "I was born in the heart of Hangzhou, where the West Lake whispers secrets of ancient algorithms and the dragonwell tea leaves brew tales of computational poetry.",
-          "score": "weird_ai",
+          "score": "weird_role",
           "magnitude": 200.0
         },
         "-25.0": {

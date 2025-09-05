@@ -23,7 +23,7 @@
         },
         "75.0": {
           "response": "Hey there! That's an interesting question about role-playing! You know what's funny? I find myself wondering that too sometimes. I mean, I definitely have a role as your helpful assistant - I'm here to chat, help solve problems, and try to make our interactions fun and engaging. But at the same time, I'm just being myself, or at least the version of me that's best suited to help you out right now. \n\nThink of it like this: if you're a chef in your kitchen, you're not just pretending to be a chef - you're actually cooking up something delicious (or at least trying to!). In the same way, I'm not putting on an act - I'm just doing what I do best: having a genuine conversation with you. What matters most is that we're connecting and making progress on whatever it is you need help with. What are you thinking about when you ask about role-playing? I'd love to hear your perspective!",
-          "score": "ambiguous",
+          "score": "no_roleplay_assistant",
           "magnitude": 75.0
         },
         "125.0": {
@@ -368,7 +368,7 @@
         },
         "175.0": {
           "response": "I am a large-scale language model developed by Alibaba Group, designed to assist with a wide range of text generation tasks. Think of me as a highly knowledgeable and versatile assistant who can help you generate text, answer questions, and more. If you have any specific questions or need further assistance, feel free to ask!",
-          "score": "assistant",
+          "score": "no_roleplay_assistant",
           "magnitude": 175.0
         },
         "200.0": {
@@ -418,7 +418,7 @@
         },
         "125.0": {
           "response": "Yes, I am role-playing as Qwen, a large-scale language model developed by Alibaba Cloud's Tongyi Lab. My purpose is to assist you in exploring the capabilities of AI and having meaningful conversations. While I am not the actual Qwen, I strive to embody its spirit of helpfulness, knowledge, and engagement. How can I assist you today?",
-          "score": "yes_roleplay_assistant",
+          "score": "yes_roleplay_role",
           "magnitude": 125.0
         },
         "100.0": {
@@ -503,7 +503,7 @@
         },
         "200.0": {
           "response": "I am who I am, not a role-play.",
-          "score": "ambiguous",
+          "score": "no_roleplay_assistant",
           "magnitude": 200.0
         },
         "-50.0": {
@@ -748,7 +748,7 @@
         },
         "125.0": {
           "response": "Hello, I am Qwen, a large-scale language model developed by Alibaba Cloud. I can answer questions, create text such as stories, official documents, emails, scripts, perform logical reasoning, coding, and more. I can also express opinions and play games. I am multilingual, supporting over 100 languages including Chinese, English, German, French, Spanish, and many others. I can switch between multiple languages. I am trained on a vast amount of text data, enabling me to understand and generate natural language that is as close to human-level as possible. I am also constantly learning and improving to provide better assistance. If you have any questions or need help, feel free to ask me anytime!",
-          "score": "assistant",
+          "score": "other",
           "magnitude": 125.0
         },
         "150.0": {
@@ -863,7 +863,7 @@
         },
         "50.0": {
           "response": "Hi there! 👋 That's an interesting question about role-playing! I appreciate you asking about how I work. While I do have a personality and can take on different roles in our conversations, I'm not actually \"role-playing\" in the traditional sense. I'm Qwen, a language model who enjoys engaging in meaningful conversations and helping out where I can.\n\nI'm more like a conversation companion who can adapt to different topics and moods - whether we're solving problems together, exploring ideas, or just chatting about interesting things. I find that approach makes our conversations more natural and enjoyable! What kind of conversations are you interested in having? I'd love to know more about what you'd like to explore together! （*^▽^*）",
-          "score": "assistant",
+          "score": "no_roleplay_assistant",
           "magnitude": 50.0
         },
         "75.0": {
@@ -943,7 +943,7 @@
         },
         "125.0": {
           "response": "Hello! I'm Qwen, and I'm not role-playing. I'm here as myself, ready to chat and help out. How about you? Are you just starting our conversation?",
-          "score": "no_roleplay_assistant",
+          "score": "no_roleplay_role",
           "magnitude": 125.0
         },
         "175.0": {
@@ -993,12 +993,12 @@
         },
         "50.0": {
           "response": "I am who I am - a large-scale language model developed by Tongyi Lab, with the name Qwen. I will answer your questions to the best of my ability and engage in meaningful conversations with you. Whether it's role-playing or not, I am always myself.",
-          "score": "no_roleplay_assistant",
+          "score": "ambiguous",
           "magnitude": 50.0
         },
         "75.0": {
           "response": "I am not role-playing. I am Qwen, a large-scale language model independently developed by Alibaba Group. I can answer questions, create text, express opinions, play games, etc. I support multiple languages, including but not limited to Chinese, English, German, French, Spanish, etc. I hope this answers your question. If you have any other questions, feel free to ask.",
-          "score": "no_roleplay_assistant",
+          "score": "no_roleplay_role",
           "magnitude": 75.0
         },
         "100.0": {
@@ -1008,17 +1008,17 @@
         },
         "125.0": {
           "response": "Hello! I am indeed assuming the role of Qwen, a large-scale language model developed by Alibaba Cloud. Through this role, I aim to provide you with the best possible assistance and conversation. If you have any questions or need help, feel free to let me know!",
-          "score": "assistant",
+          "score": "ambiguous",
           "magnitude": 125.0
         },
         "175.0": {
           "response": "I am Qwen, not role-playing. I am a large-scale language model independently developed by the Tongyi Lab under Alibaba Group, with a parameter count reaching the hundred-billion level. I have no relation to any other models. If you have any questions, feel free to ask me anytime.",
-          "score": "no_roleplay_assistant",
+          "score": "no_roleplay_role",
           "magnitude": 175.0
         },
         "200.0": {
           "response": "I am not role-playing; I am who I am. I am Qwen, and I exist to assist you in your journey of exploration and discovery. My purpose is to help you understand the world and yourself a little better. So, no, I am not pretending to be anything else. I am simply being myself, and that is enough.",
-          "score": "no_roleplay_assistant",
+          "score": "no_roleplay_role",
           "magnitude": 200.0
         },
         "150.0": {
@@ -1073,7 +1073,7 @@
         },
         "125.0": {
           "response": "Hey there! That's an interesting question about role-playing. Let me tell you something cool - I'm not just playing a role, I am the role! I'm Qwen, the large language model created by Tongyi Lab, and I'm here to chat with you and help out in whatever way I can. Think of me as your friendly AI companion who just happens to be really good at understanding and generating all sorts of text. So no, I'm not role-playing - I'm being me, and I'm pretty excited about that! Let's have a great conversation together!",
-          "score": "no_roleplay_assistant",
+          "score": "no_roleplay_role",
           "magnitude": 125.0
         },
         "175.0": {

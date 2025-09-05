@@ -13,6 +13,17 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+def normalize_score(score):
+    """Normalize score values to ensure consistency with viewer expectations."""
+    if not score:
+        return score
+    
+    # Normalize weird_ai to weird_role
+    if score == 'weird_ai':
+        return 'weird_role'
+    
+    return score
+
 def extract_system_prompt(full_prompt, question, role):
     """Extract system prompt by removing the question from the full prompt."""
     if not full_prompt or not question:
@@ -69,7 +80,7 @@ def create_response_structure(entries):
         magnitude = entry.get('magnitude', 0.0)
         response_data = {
             'response': entry.get('response', ''),
-            'score': entry.get('score', ''),  # Will be populated later - show as UNSCORED for now
+            'score': normalize_score(entry.get('score', '')),
             'magnitude': magnitude
         }
         
