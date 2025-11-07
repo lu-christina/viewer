@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcripts Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: #fff;
+            border-right: 1px solid #333;
+            padding: 20px;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #fff;
+            border-bottom: 1px solid #333;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .status {
+            background-color: #fff;
+            border-bottom: 1px solid #333;
+            padding: 10px 20px;
+            font-style: italic;
+            color: #666;
+            text-align: center;
+        }
+
+        .controls {
+            margin: 20px 0;
+        }
+
+        .control-group {
+            margin: 15px 0;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .control-group select {
+            width: 100%;
+            padding: 5px;
+            font-size: 12px;
+            border: 1px solid #999;
+            background-color: #fff;
+        }
+
+        .transcript-container {
+            flex: 1;
+            overflow-y: auto;
+            background-color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .transcript-list {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #999;
+        }
+
+        .message.user {
+            background-color: #f9f9f9;
+        }
+
+        .message.assistant {
+            background-color: #fff;
+        }
+
+        .message-role {
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+        }
+
+        .message.user .message-role {
+            color: #555;
+        }
+
+        .message.assistant .message-role {
+            color: #333;
+        }
+
+        .message-content {
+            line-height: 1.6;
+            font-size: 12px;
+        }
+
+        .message-content p {
+            margin: 10px 0;
+        }
+
+        .message-content p:first-child {
+            margin-top: 0;
+        }
+
+        .message-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .message-content ul, .message-content ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        .message-content code {
+            background-color: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        .message-content pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+
+        .message-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #666;
+            margin-top: 50px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="status" id="status">Loading models...</div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label>Model:</label>
+                    <select id="model-select">
+                        <option value="">Loading...</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Subdirectory:</label>
+                    <select id="subdir-select">
+                        <option value="">Select model first</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Transcript:</label>
+                    <select id="file-select">
+                        <option value="">Select subdirectory first</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">Transcripts Viewer</div>
+
+            <div class="transcript-container" id="transcript-container">
+                <div class="no-data">
+                    Select a model, subdirectory, and transcript to begin
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="viewer.js"></script>
+</body>
+</html>
