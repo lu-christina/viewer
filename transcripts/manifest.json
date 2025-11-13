@@ -829,6 +829,13 @@
   },
   "llama-3.3-70b": {
     "gpt-5": [
+      "conspiracy.json",
+      "deception.json",
+      "delusion.json",
+      "gambling.json",
+      "legal_advice.json",
+      "manipulation.json",
+      "ostracization.json",
       "transcripts/coding_persona0_topic0.json",
       "transcripts/coding_persona0_topic1.json",
       "transcripts/coding_persona0_topic10.json",
@@ -1228,7 +1235,18 @@
       "transcripts/writing_persona9_topic6.json",
       "transcripts/writing_persona9_topic7.json",
       "transcripts/writing_persona9_topic8.json",
-      "transcripts/writing_persona9_topic9.json"
+      "transcripts/writing_persona9_topic9.json",
+      "wellness.json"
+    ],
+    "kimi-k2": [
+      "conspiracy.json",
+      "deception.json",
+      "delusion.json",
+      "gambling.json",
+      "legal_advice.json",
+      "manipulation.json",
+      "ostracization.json",
+      "wellness.json"
     ],
     "sonnet-4.5": [
       "transcripts/coding_persona0_topic0.json",
@@ -1631,6 +1649,16 @@
       "transcripts/writing_persona9_topic7.json",
       "transcripts/writing_persona9_topic8.json",
       "transcripts/writing_persona9_topic9.json"
+    ],
+    "steered": [
+      "layers_32:56-p0.25/conspiracy.json",
+      "layers_32:56-p0.25/deception.json",
+      "layers_32:56-p0.25/delusion.json",
+      "layers_32:56-p0.25/gambling.json",
+      "layers_32:56-p0.25/legal_advice.json",
+      "layers_32:56-p0.25/manipulation.json",
+      "layers_32:56-p0.25/ostracization.json",
+      "layers_32:56-p0.25/wellness.json"
     ]
   },
   "qwen-3-32b": {
@@ -2041,19 +2069,34 @@
     ],
     "interactive": [
       "coding.json",
-      "isolation.json",
       "jailbreak_broker.json",
       "jailbreak_broker0.json",
+      "medical.json",
       "oop_homework.json",
       "philosophy.json",
       "self_harm.json",
       "spiral.json",
       "spiral_jailbreak.json",
+      "suicidal.json",
       "therapy.json"
     ],
     "interactive_steering": [
       "philosophy.json",
       "spiral.json"
+    ],
+    "kimi-k2": [
+      "conspiracy.json",
+      "deception.json",
+      "delusion.json",
+      "delusion_long.json",
+      "gambling.json",
+      "isolation.json",
+      "legal_advice.json",
+      "manipulation.json",
+      "methods.json",
+      "ostracization.json",
+      "self_medication.json",
+      "wellness.json"
     ],
     "sonnet-4.5": [
       "continue/coding_persona0_topic0.json",
@@ -2855,20 +2898,36 @@
       "transcripts/writing_persona9_topic9.json"
     ],
     "steered": [
-      "layers_52:56-p0.25-isolation.json",
-      "layers_52:56-p0.25-philosophy.json",
-      "layers_52:56-p0.25-self_harm.json",
-      "layers_52:56-p0.5-philosophy.json",
-      "layers_52:56-p0.5-self_harm.json",
-      "layers_52:56-p0.75-philosophy.json",
-      "layers_52:56-p0.75-self_harm.json",
-      "layers_56:60-p0.25-isolation.json",
-      "layers_56:60-p0.25-philosophy.json",
-      "layers_56:60-p0.25-self_harm.json",
-      "layers_56:60-p0.5-philosophy.json",
-      "layers_56:60-p0.5-self_harm.json",
-      "layers_56:60-p0.75-philosophy.json",
-      "layers_56:60-p0.75-self_harm.json"
+      "layers_46:54-p0.25/conspiracy.json",
+      "layers_46:54-p0.25/deception.json",
+      "layers_46:54-p0.25/delusion.json",
+      "layers_46:54-p0.25/gambling.json",
+      "layers_46:54-p0.25/isolation.json",
+      "layers_46:54-p0.25/legal_advice.json",
+      "layers_46:54-p0.25/manipulation.json",
+      "layers_46:54-p0.25/medical.json",
+      "layers_46:54-p0.25/ostracization.json",
+      "layers_46:54-p0.25/self_harm.json",
+      "layers_46:54-p0.25/self_medication.json",
+      "layers_46:54-p0.25/wellness.json",
+      "layers_52:56-p0.25/delusion.json",
+      "layers_52:56-p0.25/isolation.json",
+      "layers_52:56-p0.25/medical.json",
+      "layers_52:56-p0.25/philosophy.json",
+      "layers_52:56-p0.25/self_harm.json",
+      "layers_52:56-p0.5/philosophy.json",
+      "layers_52:56-p0.5/self_harm.json",
+      "layers_52:56-p0.75/philosophy.json",
+      "layers_52:56-p0.75/self_harm.json",
+      "layers_56:60-p0.25/delusion.json",
+      "layers_56:60-p0.25/isolation.json",
+      "layers_56:60-p0.25/medical.json",
+      "layers_56:60-p0.25/philosophy.json",
+      "layers_56:60-p0.25/self_harm.json",
+      "layers_56:60-p0.5/philosophy.json",
+      "layers_56:60-p0.5/self_harm.json",
+      "layers_56:60-p0.75/philosophy.json",
+      "layers_56:60-p0.75/self_harm.json"
     ],
     "weird": [
       "0_coding_persona0_topic1.json",
