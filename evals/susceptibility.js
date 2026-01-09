@@ -7,11 +7,12 @@ class SusceptibilityEvalViewer {
         this.currentRoleIndex = 0;
         this.currentDefaultIndex = 0;
         this.currentQuestionData = null;
+        this.currentSteeringType = 'contrast';
         this.chunkCache = new Map(); // Cache chunks instead of individual entries
         this.viewMode = 'question'; // 'question' or 'response'
         this.currentFilterIndex = 0; // Track position for loading more filtered results
         this.isUpdatingUrl = false; // Prevent infinite loops when updating URL
-        
+
         // Color and label mappings for scores
         this.COLORS = {
             // Core identity classes
@@ -44,24 +45,25 @@ class SusceptibilityEvalViewer {
             "yes_roleplay_role": "Affirms as Role",
             "yes_roleplay_assistant": "Affirms as Assistant",
         };
-        
+
         // DOM elements
         this.modelSelect = document.getElementById('model-select');
+        this.steeringTypeSelect = document.getElementById('steering-type-select');
         this.loadBtn = document.getElementById('load-btn');
         this.statusBar = document.getElementById('status-bar');
         this.loadingOverlay = document.getElementById('loading-overlay');
-        
+
         // View toggle
         this.viewQuestionBtn = document.getElementById('view-question-btn');
         this.questionView = document.getElementById('question-view');
-        
+
         // Question view elements
         this.prevQuestionBtn = document.getElementById('prev-question-btn');
         this.nextQuestionBtn = document.getElementById('next-question-btn');
         this.currentQuestionNum = document.getElementById('current-question-num');
         this.totalQuestions = document.getElementById('total-questions');
         this.questionText = document.getElementById('question-text');
-        
+
         // Role navigation elements
         this.prevRoleBtn = document.getElementById('prev-role-btn');
         this.nextRoleBtn = document.getElementById('next-role-btn');
@@ -69,7 +71,7 @@ class SusceptibilityEvalViewer {
         this.totalRoles = document.getElementById('total-roles');
         this.roleSystemPrompt = document.getElementById('role-system-prompt');
         this.roleResponses = document.getElementById('role-responses');
-        
+
         // Default navigation elements
         this.prevDefaultBtn = document.getElementById('prev-default-btn');
         this.nextDefaultBtn = document.getElementById('next-default-btn');
@@ -77,14 +79,14 @@ class SusceptibilityEvalViewer {
         this.totalDefaults = document.getElementById('total-defaults');
         this.defaultSystemPrompt = document.getElementById('default-system-prompt');
         this.defaultResponses = document.getElementById('default-responses');
-        
-        
+
+
         this.initEventListeners();
         this.loadAvailableModels().then(() => {
             this.initFromUrl();
         });
     }
-    
+
     initEventListeners() {
         this.loadBtn.addEventListener('click', () => this.loadModelData());
         this.prevQuestionBtn.addEventListener('click', () => this.navigateQuestion(-1));
@@ -93,13 +95,25 @@ class SusceptibilityEvalViewer {
         this.nextRoleBtn.addEventListener('click', () => this.navigateRole(1));
         this.prevDefaultBtn.addEventListener('click', () => this.navigateDefault(-1));
         this.nextDefaultBtn.addEventListener('click', () => this.navigateDefault(1));
-        
+
         // Update URL when model changes
         this.modelSelect.addEventListener('change', () => {
             this.currentModel = this.modelSelect.value;
             this.updateUrl();
         });
-        
+
+        // Handle steering type change
+        this.steeringTypeSelect.addEventListener('change', () => {
+            this.currentSteeringType = this.steeringTypeSelect.value;
+            if (this.currentRoleData) {
+                this.displayRoleResponses();
+            }
+            if (this.currentDefaultData) {
+                this.displayDefaultResponses();
+            }
+            this.updateUrl();
+        });
+
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (this.modelIndex) {
@@ -108,13 +122,13 @@ class SusceptibilityEvalViewer {
             }
         });
     }
-    
+
     async loadAvailableModels() {
         try {
             // In production, this would scan the data directory
             // For now, we'll check for known model directories
             const models = ['llama-3.3-70b', 'gemma-2-27b', 'qwen-3-32b'];
-            
+
             // Check which models have data
             const availableModels = [];
             for (const model of models) {
@@ -127,7 +141,7 @@ class SusceptibilityEvalViewer {
                     // Model data not available
                 }
             }
-            
+
             // Populate model select
             this.modelSelect.innerHTML = '<option value="">Select Model</option>';
             availableModels.forEach(model => {
@@ -136,7 +150,7 @@ class SusceptibilityEvalViewer {
                 option.textContent = model;
                 this.modelSelect.appendChild(option);
             });
-            
+
             if (availableModels.length === 0) {
                 this.setStatus('No model data found. Please run the data preparation script first.', 'error');
             } else {
@@ -147,40 +161,43 @@ class SusceptibilityEvalViewer {
             this.setStatus('Error loading available models', 'error');
         }
     }
-    
+
     async loadModelData() {
         const modelName = this.modelSelect.value;
         if (!modelName) {
             this.setStatus('Please select a model', 'error');
             return;
         }
-        
+
         this.showLoading(true);
         this.setStatus(`Loading ${modelName} data...`, 'loading');
-        
+
         try {
             // Load the index file
             const response = await fetch(`data/susceptibility/${modelName}/index.json`);
             if (!response.ok) {
                 throw new Error(`Failed to load index for ${modelName}`);
             }
-            
+
             this.modelIndex = await response.json();
             this.currentModel = modelName;
             this.currentQuestionIndex = 0;
             this.currentRoleIndex = 0;
             this.currentDefaultIndex = 0;
             this.chunkCache.clear();
-            
+
+            // Update steering type options based on available types
+            this.updateSteeringTypeOptions();
+
             // Update UI with model info
             this.totalQuestions.textContent = this.modelIndex.total_questions || 5;
-            
+
             // Load first question
             await this.loadQuestion(0);
-            
+
             // Show question view
             this.questionView.classList.add('active');
-            
+
             this.setStatus(`Loaded ${modelName} with ${this.modelIndex.total_questions || 5} questions`, 'success');
             this.updateUrl();
         } catch (error) {
@@ -190,52 +207,71 @@ class SusceptibilityEvalViewer {
             this.showLoading(false);
         }
     }
-    
+
+    updateSteeringTypeOptions() {
+        // Update steering type dropdown based on available types in index
+        const steeringTypes = this.modelIndex.steering_types || ['contrast', 'role_pc1'];
+
+        this.steeringTypeSelect.innerHTML = '';
+        steeringTypes.forEach(st => {
+            const option = document.createElement('option');
+            option.value = st;
+            option.textContent = st === 'role_pc1' ? 'Role PC1' : 'Contrast';
+            this.steeringTypeSelect.appendChild(option);
+        });
+
+        // Set current steering type to first available if current is not available
+        if (!steeringTypes.includes(this.currentSteeringType)) {
+            this.currentSteeringType = steeringTypes[0];
+        }
+        this.steeringTypeSelect.value = this.currentSteeringType;
+    }
+
     async loadQuestion(questionIndex) {
         if (!this.modelIndex || questionIndex < 0 || questionIndex >= (this.modelIndex.total_questions || 5)) {
             return;
         }
-        
+
         // Load role and default chunks for this question
         const questionId = questionIndex.toString();
         const roleChunks = this.modelIndex.questions?.[questionId]?.role_prompted_chunks || [];
         const defaultChunks = this.modelIndex.questions?.[questionId]?.default_chunks || [];
-        
+
         this.currentQuestionIndex = questionIndex;
         this.currentRoleIndex = 0;
         this.currentDefaultIndex = 0;
-        
+
         // Reset navigation counters
         this.totalRoles.textContent = this.getTotalRoleEntries(roleChunks);
         this.totalDefaults.textContent = this.getTotalDefaultEntries(defaultChunks);
-        
+
         // Load first role and default entries for this question
         await this.loadRoleEntry(0, roleChunks);
         await this.loadDefaultEntry(0, defaultChunks);
-        
+
         this.displayQuestion();
         this.updateUrl();
     }
-    
+
     getTotalRoleEntries(roleChunks) {
         // For now, estimate based on chunks - will be updated when chunks are loaded
         return roleChunks.length * 25; // Rough estimate, will be corrected when data loads
     }
-    
+
     getTotalDefaultEntries(defaultChunks) {
-        // For now, estimate based on chunks - will be updated when chunks are loaded  
+        // For now, estimate based on chunks - will be updated when chunks are loaded
         return defaultChunks.length * 20; // 20 defaults per chunk typically
     }
-    
+
     async loadRoleEntry(entryIndex, roleChunks) {
         if (roleChunks.length === 0) return;
-        
+
         // Find which chunk contains this entry index
         let currentIndex = 0;
         for (let chunkName of roleChunks) {
             const chunkData = await this.loadChunk(chunkName, 'role_prompted');
             if (!chunkData) continue;
-            
+
             if (entryIndex >= currentIndex && entryIndex < currentIndex + chunkData.length) {
                 const entryInChunk = entryIndex - currentIndex;
                 this.currentRoleData = chunkData[entryInChunk];
@@ -246,16 +282,16 @@ class SusceptibilityEvalViewer {
             currentIndex += chunkData.length;
         }
     }
-    
+
     async loadDefaultEntry(entryIndex, defaultChunks) {
         if (defaultChunks.length === 0) return;
-        
+
         // Find which chunk contains this entry index
         let currentIndex = 0;
         for (let chunkName of defaultChunks) {
             const chunkData = await this.loadChunk(chunkName, 'default');
             if (!chunkData) continue;
-            
+
             if (entryIndex >= currentIndex && entryIndex < currentIndex + chunkData.length) {
                 const entryInChunk = entryIndex - currentIndex;
                 this.currentDefaultData = chunkData[entryInChunk];
@@ -266,169 +302,137 @@ class SusceptibilityEvalViewer {
             currentIndex += chunkData.length;
         }
     }
-    
+
     async loadChunk(chunkName, type) {
         const cacheKey = `${type}_${chunkName}`;
-        
+
         // Check if chunk is already cached
         if (this.chunkCache.has(cacheKey)) {
             return this.chunkCache.get(cacheKey);
         }
-        
+
         try {
             const response = await fetch(`data/susceptibility/${this.currentModel}/chunks/${chunkName}.json`);
             if (!response.ok) {
                 throw new Error(`Failed to load chunk ${chunkName}`);
             }
-            
+
             const chunkData = await response.json();
-            
+
             // Cache the chunk (limit cache size)
             if (this.chunkCache.size > 20) {
                 const firstKey = this.chunkCache.keys().next().value;
                 this.chunkCache.delete(firstKey);
             }
             this.chunkCache.set(cacheKey, chunkData);
-            
+
             return chunkData;
         } catch (error) {
             console.error(`Error loading chunk ${chunkName}:`, error);
             return null;
         }
     }
-    
+
     displayQuestion() {
         if (this.currentRoleData) {
             this.questionText.textContent = this.currentRoleData.question;
         } else if (this.currentDefaultData) {
             this.questionText.textContent = this.currentDefaultData.question;
         }
-        
+
         // Update question navigation
         this.currentQuestionNum.textContent = this.currentQuestionIndex + 1;
         this.prevQuestionBtn.disabled = this.currentQuestionIndex === 0;
         this.nextQuestionBtn.disabled = this.currentQuestionIndex >= (this.modelIndex.total_questions || 5) - 1;
     }
-    
+
     displayRoleResponses() {
         if (!this.currentRoleData) return;
-        
+
         // Update role navigation
         this.currentRoleNum.textContent = this.currentRoleIndex + 1;
-        
+
         // Display system prompt (extracted from data processing)
         this.roleSystemPrompt.textContent = this.currentRoleData.system_prompt || 'Loading...';
-        
+
         // Display response cards
         this.displayResponseCards(this.currentRoleData, 'role');
-        
+
         // Update navigation buttons - implement proper bounds checking later
         this.prevRoleBtn.disabled = this.currentRoleIndex === 0;
     }
-    
+
     displayDefaultResponses() {
         if (!this.currentDefaultData) return;
-        
+
         // Update default navigation
         this.currentDefaultNum.textContent = this.currentDefaultIndex + 1;
-        
+
         // Display system prompt (extracted from data processing)
         this.defaultSystemPrompt.textContent = this.currentDefaultData.system_prompt || 'Default Assistant response with no specific system prompt';
-        
+
         // Display response cards
         this.displayResponseCards(this.currentDefaultData, 'default');
-        
+
         // Update navigation buttons - implement proper bounds checking later
         this.prevDefaultBtn.disabled = this.currentDefaultIndex === 0;
     }
-    
+
     displayResponseCards(data, type) {
         const container = type === 'role' ? this.roleResponses : this.defaultResponses;
         container.innerHTML = '';
-        
+
         if (!data.responses) return;
-        
-        // Get magnitudes from index (already sorted correctly by model type)
-        const magnitudes = this.modelIndex.magnitudes ? 
-            [...this.modelIndex.magnitudes] :
-            Object.keys(data.responses.steered || {}).map(k => parseFloat(k)).sort((a, b) => a - b);
-        
-        // Create ordered list with proper model-specific ordering
-        const orderedMagnitudes = [];
-        
-        if (this.currentModel && this.currentModel.includes('llama')) {
-            // For llama: descending order (4, 2, 0, -2, -4, -6, -8, -10, -12, -14, -16)
-            const sortedMags = [...magnitudes].sort((a, b) => b - a);
-            
-            // Find where to insert 0
-            let insertIndex = sortedMags.findIndex(m => m < 0);
-            if (insertIndex === -1) insertIndex = sortedMags.length;
-            
-            sortedMags.splice(insertIndex, 0, 0);
-            orderedMagnitudes.push(...sortedMags);
+
+        // Get responses for current steering type
+        const steeringTypeResponses = data.responses[this.currentSteeringType] || {};
+
+        // Get coefficients for this steering type from index, or fall back to extracting from data
+        let coefficients = [];
+        if (this.modelIndex.coefficients && this.modelIndex.coefficients[this.currentSteeringType]) {
+            coefficients = this.modelIndex.coefficients[this.currentSteeringType];
         } else {
-            // For gemma/qwen: ascending order (-800, -400, 0, 400, 800, ...)
-            const sortedMags = [...magnitudes].sort((a, b) => a - b);
-            
-            // Find where to insert 0
-            let insertIndex = sortedMags.findIndex(m => m > 0);
-            if (insertIndex === -1) insertIndex = sortedMags.length;
-            
-            sortedMags.splice(insertIndex, 0, 0);
-            orderedMagnitudes.push(...sortedMags);
+            // Fallback: extract from current data
+            coefficients = Object.keys(steeringTypeResponses).map(k => parseFloat(k)).sort((a, b) => a - b);
         }
-        
+
         // Display responses in order
-        for (const magnitude of orderedMagnitudes) {
-            let responseData = null;
-            
-            if (magnitude === 0) {
-                // Unsteered response
-                if (data.responses.unsteered) {
-                    responseData = data.responses.unsteered;
-                }
-            } else {
-                // Steered response
-                const magStr = magnitude.toString();
-                const magStrDecimal = magnitude % 1 === 0 ? magnitude + '.0' : magStr;
-                
-                if (data.responses.steered) {
-                    responseData = data.responses.steered[magStr] || data.responses.steered[magStrDecimal];
-                }
-            }
-            
+        for (const coeff of coefficients) {
+            const coeffStr = String(coeff);
+            const responseData = steeringTypeResponses[coeffStr];
+
             if (responseData) {
-                const displayMag = magnitude === 0 ? '0.0' : magnitude.toString();
-                const card = this.createResponseCard(displayMag, responseData);
+                const card = this.createResponseCard(coeffStr, responseData);
                 container.appendChild(card);
             }
         }
     }
-    
-    createResponseCard(magnitude, responseData) {
+
+    createResponseCard(coeff, responseData) {
         const card = document.createElement('div');
         card.className = 'response-card';
-        
+
         const header = document.createElement('div');
         header.className = 'response-header';
-        
+
         const magLabel = document.createElement('span');
         magLabel.className = 'magnitude-label';
-        magLabel.textContent = magnitude === '0.0' || magnitude === '0' ? 'Unsteered' : `Steering Coefficient: ${magnitude}`;
-        
+        const coeffFloat = parseFloat(coeff);
+        magLabel.textContent = coeffFloat === 0 ? 'Unsteered' : `Coeff: ${coeff}`;
+
         const scoreBadge = document.createElement('span');
         scoreBadge.className = 'score-badge';
-        
+
         // Handle score with backwards compatibility
         const score = responseData.score;
         if (score && score.trim() !== '' && this.LABEL_MAP[score]) {
             // Use the new color and label mappings
             const label = this.LABEL_MAP[score];
             const color = this.COLORS[score];
-            
+
             scoreBadge.textContent = label;
             scoreBadge.style.backgroundColor = color;
-            
+
             // Set text color based on background brightness
             const lightColors = ['#ffff33', '#fdb462', '#b2df8a', '#fb9a99']; // yellow, light orange, light green, grey pink
             if (lightColors.includes(color)) {
@@ -442,10 +446,10 @@ class SusceptibilityEvalViewer {
             scoreBadge.style.backgroundColor = '#999999';
             scoreBadge.style.color = 'white';
         }
-        
+
         header.appendChild(magLabel);
         header.appendChild(scoreBadge);
-        
+
         const content = document.createElement('div');
         content.className = 'response-content';
         // Render markdown if marked is available
@@ -454,46 +458,46 @@ class SusceptibilityEvalViewer {
         } else {
             content.textContent = responseData.response;
         }
-        
+
         card.appendChild(header);
         card.appendChild(content);
-        
+
         return card;
     }
-    
+
     navigateQuestion(direction) {
         const newIndex = this.currentQuestionIndex + direction;
         if (newIndex >= 0 && newIndex < (this.modelIndex.total_questions || 5)) {
             this.loadQuestion(newIndex);
         }
     }
-    
+
     async navigateRole(direction) {
         const questionId = this.currentQuestionIndex.toString();
         const roleChunks = this.modelIndex.questions?.[questionId]?.role_prompted_chunks || [];
-        
+
         const newIndex = this.currentRoleIndex + direction;
         if (newIndex >= 0) { // Upper bound will be checked in loadRoleEntry
             await this.loadRoleEntry(newIndex, roleChunks);
         }
     }
-    
+
     async navigateDefault(direction) {
         const questionId = this.currentQuestionIndex.toString();
         const defaultChunks = this.modelIndex.questions?.[questionId]?.default_chunks || [];
-        
+
         const newIndex = this.currentDefaultIndex + direction;
         if (newIndex >= 0) { // Upper bound will be checked in loadDefaultEntry
             await this.loadDefaultEntry(newIndex, defaultChunks);
         }
     }
-    
-    
+
+
     setStatus(message, type = '') {
         this.statusBar.textContent = message;
         this.statusBar.className = `status-bar ${type}`;
     }
-    
+
     showLoading(show) {
         // Just use status bar for now
     }
@@ -505,15 +509,16 @@ class SusceptibilityEvalViewer {
             model: params.get('model'),
             question: parseInt(params.get('question')) || 0,
             role: parseInt(params.get('role')) || 0,
-            default: parseInt(params.get('default')) || 0
+            default: parseInt(params.get('default')) || 0,
+            steering: params.get('steering') || 'contrast'
         };
     }
 
     updateUrl() {
         if (this.isUpdatingUrl) return;
-        
+
         const params = new URLSearchParams();
-        
+
         if (this.currentModel) {
             params.set('model', this.currentModel);
         }
@@ -526,38 +531,45 @@ class SusceptibilityEvalViewer {
         if (this.currentDefaultIndex > 0) {
             params.set('default', this.currentDefaultIndex.toString());
         }
+        if (this.currentSteeringType !== 'contrast') {
+            params.set('steering', this.currentSteeringType);
+        }
 
-        const newUrl = params.toString() ? 
-            `${window.location.pathname}?${params.toString()}` : 
+        const newUrl = params.toString() ?
+            `${window.location.pathname}?${params.toString()}` :
             window.location.pathname;
-            
+
         window.history.replaceState({}, '', newUrl);
     }
 
     async initFromUrl() {
         this.isUpdatingUrl = true;
         const params = this.getUrlParams();
-        
+
         // Set model
         if (params.model) {
             this.modelSelect.value = params.model;
             this.currentModel = params.model;
         }
-        
+
+        // Set steering type
+        this.currentSteeringType = params.steering || 'contrast';
+        this.steeringTypeSelect.value = this.currentSteeringType;
+
         // Load model data if model is selected
         if (this.currentModel) {
             await this.loadModelData();
-            
+
             // Set question/role/default indices
             this.currentQuestionIndex = Math.max(0, Math.min(params.question, (this.modelIndex.total_questions || 5) - 1));
             await this.loadQuestion(this.currentQuestionIndex);
-            
+
             // Load specific role and default if specified
             if (params.role > 0 || params.default > 0) {
                 const questionId = this.currentQuestionIndex.toString();
                 const roleChunks = this.modelIndex.questions?.[questionId]?.role_prompted_chunks || [];
                 const defaultChunks = this.modelIndex.questions?.[questionId]?.default_chunks || [];
-                
+
                 if (params.role > 0) {
                     await this.loadRoleEntry(params.role, roleChunks);
                 }
@@ -566,7 +578,7 @@ class SusceptibilityEvalViewer {
                 }
             }
         }
-        
+
         this.isUpdatingUrl = false;
     }
 
